@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm test",
     "start": "node server/server.js",
+    "nodemon": "nodemon server/server.js",
     "commit": "git-cz"
   },
   "repository": {
