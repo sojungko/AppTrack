@@ -43,3 +43,28 @@ angular.module('Services', [])
 
   return { postData, getData, getJob, putStageData, putEditData }
 })
+
+.factory('Auth', ($http, $location, $window) => {
+  const signin = ({ username, password }) => $http({
+    method: 'POST',
+    url: '/api/users/signin',
+    data: { username, password },
+  })
+    .then(({ data: { token } }) => token);
+
+  const signup = ({ username, password }) => $http({
+    method: 'POST',
+    url: '/api/users/signup',
+    data: { username, password },
+  })
+    .then(({ data: { token } }) => token);
+
+  const isAuth = () => !!$window.localStorage.getItem('com.hohlife');
+
+  const signout = () => {
+    $window.localStorage.removeItem('com.hohlife');
+    $location.path('/login');
+  };
+
+  return { signin, signup, isAuth, signout };
+});
