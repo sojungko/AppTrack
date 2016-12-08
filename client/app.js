@@ -1,6 +1,6 @@
 angular.module('at', [
   'at.addApps',
-  'at.allApps'
+  'at.allApps',
   'at.auth',
   'at.services',
   'ngRoute',
