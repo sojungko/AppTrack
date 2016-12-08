@@ -32,7 +32,7 @@ angular.module('at', [
 .factory('AttachTokens', ($window) => {
   const attach = {
     request(object) {
-      const jwt = $window.localStorage.getItem('app-track');
+      const jwt = $window.localStorage.getItem('app-trak');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
       }
