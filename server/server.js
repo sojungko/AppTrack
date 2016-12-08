@@ -3,7 +3,7 @@ const User = require('./users/userModel.js'); //The file with the defined user s
 require('dotenv').config(); // This env configuration is coupled with the ".env" file that has our MongoDB database access username and password.
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser'); // 
+const bodyParser = require('body-parser'); //
 const mongoose = require('mongoose');
 const Position = require('./positions/positionModel.js') //Positions schema is required here as well.
 
@@ -34,7 +34,7 @@ mongoose.connect(url);
 console.log(url)
 
 
-//post request endpoint that is initialized in our $http post request in our Angular formController. 
+//post request endpoint that is initialized in our $http post request in our Angular formController.
 // This saves all form inputs to our database which can be viewed via https://mlab.com/
 app.post('/form', function(req, res) {
 
@@ -83,6 +83,14 @@ app.put('/form/:id', function(req, res) {
         })
 })
 
+app.put('/edit/:id', function(req, res) {
+	console.log('THIS IS REQ.BODY EDIT INFO: ', req.body)
+    Position.findByIdAndUpdate(req.params.id, req.body,
+        function(err, stage) {
+            res.send(stage)
+        })
+})
+
 // Signup end point that gathers the input username and password and then utilizes the .find method to locate the given username. If the user length is nonexistence than a new one is created.
 // The newUser is then saved to the database's user collection with .save.
 app.post('/signup', function(req, res) {
@@ -118,4 +126,3 @@ app.listen(port, (err) => {
     }
     console.log('Server is listening on port: ', port);
 })
-

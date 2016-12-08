@@ -48,7 +48,7 @@ angular.module('Form', [])
     }
     $scope.enableEditor = function($index) {
       $scope.edit.editorEnabled = true;
-      $scope.edit.editableCompanyName = $scope.results[$index].companyName;
+      $scope.edit.companyName = $scope.results[$index].companyName;
       $scope.edit.role = $scope.results[$index].role;
       $scope.edit.jobDescription = $scope.results[$index].jobDescription;
       $scope.edit.appliedThrough = $scope.results[$index].appliedThrough;
@@ -57,16 +57,18 @@ angular.module('Form', [])
 
     $scope.save = function($index, edit){
       $scope.edit.editorEnabled=false;
+      HttpService.putEditData({"id": $scope.results[$index]._id, "edit": $scope.edit})
+      .then(function(resp) {
+        $scope.edit = {};
+        $scope.getJobData();
+      })
       // console.log('THIS IS THE EDIT+++++++++', edit);
       // $scope.results[$index].companyName = edit.editableCompanyName;
       // $scope.results[$index].role = edit.role;
       // $scope.results[$index].jobDescription = edit.jobDescription;
       // $scope.results[$index].appliedThrough = edit.appliedThrough;
       // $scope.results[$index].contactName = edit.contactName;
-
-      console.log("SAVE RESULTS++++++++", $scope.edit.editableCompanyName);
-
-
+      // console.log("SAVE RESULTS++++++++", $scope.edit.editableCompanyName);
     }
 
   })
@@ -101,8 +103,14 @@ angular.module('Form', [])
       console.log(res)
       return res;
     })
+  }
 
-
+  let putEditData = function(editData) {
+    console.log('THIS IS THE EDIT DATA FROM FACTORY: ', editData);
+    return $http.put('/edit/' + editData.id, editData.edit)
+    .then(function(res) {
+      return res;
+    })
   }
 
 
@@ -110,6 +118,7 @@ angular.module('Form', [])
     postData: postData,
     getData: getData,
     getJob: getJob,
-    putStageData: putStageData
+    putStageData: putStageData,
+    putEditData: putEditData
   }
 })

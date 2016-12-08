@@ -72,7 +72,7 @@ col {
   border-radius: 15px;
   box-shadow: 10px 10px 5px lightgrey;
   width: 300px;
-  height: 400px;
+  height: 450px;
   background-color:#fffee2;
   font: 10px helvetica, sans-serif;
   margin: 20px 20px 0 20px;
@@ -93,7 +93,7 @@ col {
   border-radius: 15px;
   box-shadow: 10px 10px 5px lightgrey;
   width: 300px;
-  height: 400px;
+  height: 450px;
   background-color:#e2ffe4;
   margin: 20px 20px 0 20px;
   float: left;
@@ -113,7 +113,7 @@ col {
   border-radius: 15px;
   box-shadow: 10px 10px 5px lightgrey;
   width: 300px;
-  height: 400px;
+  height: 450px;
   background-color:#ffe2e2;
   font-size: large;
   margin: 20px 20px 0 20px;
