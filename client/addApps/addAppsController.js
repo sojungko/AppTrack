@@ -27,6 +27,7 @@ angular.module('Form', [])
     }
     $scope.getJobData();
 
+
     $scope.getSingleJob = function() {
       console.log($scope.role);
 
