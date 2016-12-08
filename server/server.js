@@ -5,11 +5,13 @@ const bodyParser = require('body-parser'); //
 const mongoose = require('mongoose');
 const router = require('./routes.js');
 
-var app = express();
+const app = express();
 module.exports.app = app;
 
 app.use(router);
 app.use(express.static(path.join(__dirname, '/../client/')));
+app.use(express.static(path.join(__dirname, '/../client/app')));
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
