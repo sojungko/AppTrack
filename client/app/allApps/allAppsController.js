@@ -50,5 +50,4 @@ angular.module('at.allApps', [])
 
   $scope.getJobData();
 
-
-}
+});
