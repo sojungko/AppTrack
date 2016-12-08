@@ -2,21 +2,21 @@ angular.module('at', ['at.services','ngRoute'])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'allApps.html',
+    templateUrl: './app/allApps/allApps.html',
     controller: 'allAppsController',
     authenticate: false //change to true once auth works
   })
   .when('/addApps', {
-    templateUrl: 'addApps.html',
+    templateUrl: './app/addApps/addApps.html',
     controller: 'addAppsController',
     authenticate: false //change to true once auth works
   })
   .when('/login', {
-    templateUrl: './login.html',
+    templateUrl: './login/login.html',
     controller: 'AuthController'
   })
   .when('/signup', {
-    templateUrl: './signup.html',
+    templateUrl: './login/signup.html',
     controller: 'AuthController'
   })
   .otherwise({
@@ -24,6 +24,7 @@ angular.module('at', ['at.services','ngRoute'])
   });
   $httpProvider.interceptors.push('AttachTokens'); // will attach token to the localStorage
 })
+
 .factory('AttachTokens', function ($window) {
   var attach = {
     request: function (object) {
