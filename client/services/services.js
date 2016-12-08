@@ -6,19 +6,19 @@ angular.module('Services', [])
     url: '/form',
     data: data
   })
-    .then((resp) => resp);
+    .then(({ data }) => data);
 
   const getData = () => $http({
     method: 'GET',
     url: '/form'
   })
-    .then((resp) => resp);
+    .then(({ data }) => data);
 
   const getJob = (role) => $http({
     method: 'GET',
     url: '/form/' + role
   })
-    .then((resp) => resp);
+    .then(({ data }) => data);
 
   const putStageData = (stage) => {
     // TODO this function needs to be fixed
