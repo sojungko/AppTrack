@@ -29,10 +29,9 @@ app.use(bodyParser.json());
 //connect to mongo database named 'AppTrack'
 //heroku, make project, mlab is available as heroku add-on
 
-let url = 'mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@ds119608.mlab.com:19608/apptrakdb';
+let url = 'mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@ds127998.mlab.com:27998/apptrack';
 mongoose.connect(url);
 console.log(url)
-
 
 //post request endpoint that is initialized in our $http post request in our Angular formController.
 // This saves all form inputs to our database which can be viewed via https://mlab.com/

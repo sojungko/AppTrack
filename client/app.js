@@ -1,6 +1,7 @@
 angular.module('AppTracker', [
   'Form',
   'SignUp',
+  'Services',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
