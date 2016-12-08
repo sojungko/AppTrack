@@ -137,7 +137,6 @@
              <div id="list-item"><li id="card">
              <div id="card-title"><strong>Open Position</strong><br></div>
             <!-- COMPANY CLICK TO EDIT -->
-            <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
              <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
                <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
              </div>
@@ -177,7 +176,7 @@
                <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field"
                class="mdl-textfield__input" type="text">
              </div>
-
+            <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
 
                <!-- <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
                <div id="field"><strong>Applied through:</strong> <br>{{result.appliedThrough}}</div>
@@ -211,14 +210,14 @@
 
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
-               <select>
-               <option ng-repeat="x in stageSelect track by $index" ng-model="stageattrs.interviewType">{{x}}</option>
+               <select ng-model="stageattrs.interviewType">
+               <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
                </select>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
-               <div id="field">Date of Last Follow Up<br></div>
-               <input id="field" class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
-               <input id="field" class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived" required>
+               <div id="field"><strong>Last Follow Up</strong><br></div>
+               <input id="field" class="mdl-textfield__input" type="date" placeholder="Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
+               <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
                <br>
                <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
              </div>
