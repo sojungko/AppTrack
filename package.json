@@ -36,7 +36,6 @@
     "http-server": "^0.9.0",
     "mongodb": "^2.2.12",
     "mongoose": "^4.7.1",
-    "node": "0.0.0",
     "q": "^1.4.1",
     "underscore": "^1.8.3"
   },
