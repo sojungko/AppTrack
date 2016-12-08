@@ -9,7 +9,7 @@ angular.module('at', [
   $routeProvider
   .when('/', {
     templateUrl: './app/allApps/allApps.html',
-    controller: 'allAppsController',
+    controller: 'AllAppsController',
     authenticate: false, //change to true once auth works
   })
   .when('/addApps', {
