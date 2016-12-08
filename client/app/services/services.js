@@ -52,10 +52,10 @@ angular.module('at.services', [])
   })
     .then(({ data: { token } }) => token);
 
-  const isAuth = () => !!$window.localStorage.getItem('com.hohlife');
+  const isAuth = () => !!$window.localStorage.getItem('app-trak');
 
   const signout = () => {
-    $window.localStorage.removeItem('com.hohlife');
+    $window.localStorage.removeItem('app-trak');
     $location.path('/login');
   };
 
