@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "test": "npm test",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -38,5 +39,14 @@
     "node": "0.0.0",
     "q": "^1.4.1",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "commitizen": "^2.8.6",
+    "cz-conventional-changelog": "^1.2.0"
+  },
+  "config": {
+    "commitizen": {
+        "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
