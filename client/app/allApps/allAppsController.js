@@ -18,6 +18,7 @@ angular.module('at.allApps', [])
   ];
 
   $scope.getJobData = () => {
+    console.log('GETTING JOBS');
     Application.getData()
       .then((forms) => {
         console.log('allAppsController', forms.reverse());
