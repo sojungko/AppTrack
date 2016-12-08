@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="AppTracker">
+<html lang="en">
   <head>
     <link href="./styles/style.css" rel="stylesheet" type="text/css">
     <title>AppTrack</title>
@@ -16,7 +16,7 @@
   </head>
 
   <!-- Definining Angular app -->
-  <body>
+  <body ng-app="at">
 
     <!-- Header -->
     <header class="mdl-layout__header mdl-layout__header--waterfall">
@@ -39,40 +39,31 @@
 
       </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
 
-      <!-- BOTTOM ROW, not visible on scroll -->
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer"></div>
+      <!-- Bottom row, not visible on scroll -->
+      <div class="mdl-layout__header-row"</div>
 
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
+    </header><!-- Closing header -->
+    <br>
 
-          <!-- Add Aps/All Apps Button -->
-          <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
-          <div ng-click="toggle = !toggle">
-            <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised">
-              <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">
-                <span ng-show="toggle">Add App</span>
-                <span ng-hide="toggle">All Apps</span>
-              </a>
-            </button>
-          </div>
+    <!-- SING UP View -->
+    <h1 style="font-family: 'Carme', sans-serif;">Create an Account</h1>
+    <div style="margin-left: 300px; margin-top: 30px" ng-controller="SignupController" class="mdl-textfield mdl-js-textfield">
 
-        <!-- Analytics Button -->
-          <div>
-            <button ng-click="" class="mdl-button--raised">
-              <a ng-click="" class="mdl-navigation__link" href="https://www.google.com/analytics/#?modal_active=none">
-                Analytics
-              </a>
-            </button>
-          </div>
+      <!-- Sign Up form -->
+      <form>
+        <input type="text" class="mdl-textfield__input" placeholder="Username" ng-model="username">
+        <input type="password" class="mdl-textfield__input" placeholder="Password" ng-model="password">
 
-        </nav> <!-- Closing Navigation -->
-      </div> <!-- Closing BOTTOM ROW -->
-    </header> <!-- Closing HEADER -->
+        <br><br><br><br>
 
+        <!-- TODO LMAOOOO, CHANGE THIS TO ACTUAL ROUTING TO '/' -->
+        <a href="http://localhost:8080/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="submitCredentials();">Submit</a>
+      </form>
+    </div> <!-- Closing SING UP view --> 
 
-    <script src="app.js"></script>
-    <script src="allAppsController.js"></script>
-    <script src="addAppsController.js"></script>
+  <script src="app.js"></script>
+  <script src="signup.js"></script>
+  <script src="FormController.js"></script>
+
   </body>
 </html>
