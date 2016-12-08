@@ -1,51 +1,45 @@
 angular.module('Services', [])
+
   .factory('HttpService', function($http){
-  let postData = function(data) {
+  const postData = (data) => $http({
+    method: 'POST',
+    url: '/form',
+    data: data
+  })
+    .then((resp) => resp);
 
-    return $http.post('/form', data)
-    .then(function(resp) {
-      return resp
-    })
-  }
+  const getData = () => $http({
+    method: 'GET',
+    url: '/form'
+  })
+    .then((resp) => resp);
 
-  let getData = function() {
-    return $http.get('/form')
-      .then(function(res){
-        return res
-      })
-  }
+  const getJob = (role) => $http({
+    method: 'GET',
+    url: '/form/' + role
+  })
+    .then((resp) => resp);
 
-  let getJob = function(role) {
-  //vvvv this only takes one param here
-    return $http.get('/form/' + role)
-    .then(function(res){
-      return res;
-    })
-  }
+  const putStageData = (stage) => {
+    // TODO this function needs to be fixed
 
-  let putStageData = function(stage) {
-    console.log("Stage from within PutStageData HTTP service", stage.stages);
-    return $http.put('/form/' + stage.id, stage.stages)
-    .then(function(res) {
-      console.log(res)
-      return res;
-    })
-  }
+    // console.log("Stage from within PutStageData HTTP service", stage.stages);
+    // return $http.put('/form/' + stage.id, stage.stages)
+    // .then(function(res) {
+    //   console.log(res)
+    //   return res;
+    // })
+  };
 
-  let putEditData = function(editData) {
-    console.log('THIS IS THE EDIT DATA FROM FACTORY: ', editData);
-    return $http.put('/edit/' + editData.id, editData.edit)
-    .then(function(res) {
-      return res;
-    })
-  }
+  const putEditData = (editData) => {
+    // TODO this function needs to be fixed
 
+    // console.log('THIS IS THE EDIT DATA FROM FACTORY: ', editData);
+    // return $http.put('/edit/' + editData.id, editData.edit)
+    // .then(function(res) {
+    //   return res;
+    // })
+  };
 
-  return {
-    postData: postData,
-    getData: getData,
-    getJob: getJob,
-    putStageData: putStageData,
-    putEditData: putEditData
-  }
+  return { postData, getData, getJob, putStageData, putEditData }
 })
