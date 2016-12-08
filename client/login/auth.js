@@ -8,7 +8,7 @@ angular.module('at.auth', [])
     //receives jwt encoded username after backend query resolves
     Auth.signin($scope.user)
       .then((token) => {
-        $window.localStorage.setItem('com.hohlife', token);
+        $window.localStorage.setItem('app-trak', token);
         $location.path('/');
       })
       .catch((error) => {
@@ -21,7 +21,7 @@ angular.module('at.auth', [])
     //receives jwt encoded username after backend query to add user resolves
     Auth.signup($scope.user)
       .then((token) => {
-        $window.localStorage.setItem('com.hohlife', token);
+        $window.localStorage.setItem('app-trak', token);
         $location.path('/');
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ angular.module('at.auth', [])
   $scope.isAuth = () => {
     //to show and hide logout button on index.html page, checks to see if page header exists.
     //Page header added when auth is successful or on signup
-    return !!$window.localStorage.getItem('com.hohlife');
+    return !!$window.localStorage.getItem('app-trak');
   };
 
 });
