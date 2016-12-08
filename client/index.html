@@ -211,14 +211,14 @@
 
              <div id="card-title"><strong>Add Stage</strong><br></div>
                <br>
-               <select>
-               <option ng-repeat="x in stageSelect track by $index" ng-model="stageattrs.interviewType">{{x}}</option>
+               <select ng-model="stageattrs.interviewType">
+               <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
                </select>
                <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
                <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
-               <div id="field">Date of Last Follow Up<br></div>
-               <input id="field" class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
-               <input id="field" class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="stageattrs.interviewReplyReceived" required>
+               <div id="field"><strong>Last Follow Up</strong><br></div>
+               <input id="field" class="mdl-textfield__input" type="date" placeholder="Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
+               <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
                <br>
                <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
              </div>
