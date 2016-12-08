@@ -7,6 +7,7 @@ angular.module('at.allApps', [])
   $scope.stageattrs = {};
   $scope.edit = {};
 
+<<<<<<< HEAD
   // Dropdown menu for Add Stage Card //
 
   $scope.stageSelect = [
