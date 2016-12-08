@@ -137,7 +137,6 @@
              <div id="list-item"><li id="card">
              <div id="card-title"><strong>Open Position</strong><br></div>
             <!-- COMPANY CLICK TO EDIT -->
-            <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
              <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
                <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
              </div>
@@ -177,7 +176,7 @@
                <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field"
                class="mdl-textfield__input" type="text">
              </div>
-
+            <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
 
                <!-- <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
                <div id="field"><strong>Applied through:</strong> <br>{{result.appliedThrough}}</div>
