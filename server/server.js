@@ -34,4 +34,10 @@ console.log(url);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port);
+app.listen(port, (err) => {
+  if (err) {
+    console.log('Error occurred : ', err);
+  } else {
+    console.log('Server is listening to port : ', port);
+  }
+});
