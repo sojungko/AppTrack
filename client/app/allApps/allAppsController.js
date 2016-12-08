@@ -1,7 +1,6 @@
 angular.module('at.allApps', [])
 
 .controller('AllAppsController', function ($scope, Application) {
-
   $scope.role = {};
   $scope.results = {};
   $scope.job = {};
@@ -49,6 +48,4 @@ angular.module('at.allApps', [])
   };
 
   $scope.getJobData();
-
-
-}
+});
