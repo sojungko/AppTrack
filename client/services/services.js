@@ -1,45 +1,38 @@
-angular.module('Services', [])
+angular.module('at.services', [])
 
-  .factory('HttpService', function($http){
-  const postData = (data) => $http({
+.factory('Application', ($http) => {
+  const postData = (form) => $http({
     method: 'POST',
-    url: '/form',
-    data: data
+    url: '/api/form',
+    data: { form },
   })
     .then(({ data }) => data);
 
   const getData = () => $http({
     method: 'GET',
-    url: '/form'
+    url: '/api/form',
   })
     .then(({ data }) => data);
 
   const getJob = (role) => $http({
     method: 'GET',
-    url: '/form/' + role
+    url: `/api/form/${role}`,
   })
     .then(({ data }) => data);
 
-  const putStageData = (stage) => {
-    // TODO this function needs to be fixed
+  const putStageData = (id, stages) => $http({
+    method: 'POST',
+    url: `/form/${id}`,
+    data: { stages },
+  })
+    .then((resp) => resp.data);
 
-    // console.log("Stage from within PutStageData HTTP service", stage.stages);
-    // return $http.put('/form/' + stage.id, stage.stages)
-    // .then(function(res) {
-    //   console.log(res)
-    //   return res;
-    // })
-  };
+  const putEditData = (id, edit) => $http({
+    method: 'POST',
+    url: `/edit/${id}`,
+    data: { edit },
+  })
+    .then((resp) => resp.data);
 
-  const putEditData = (editData) => {
-    // TODO this function needs to be fixed
-
-    // console.log('THIS IS THE EDIT DATA FROM FACTORY: ', editData);
-    // return $http.put('/edit/' + editData.id, editData.edit)
-    // .then(function(res) {
-    //   return res;
-    // })
-  };
-
-  return { postData, getData, getJob, putStageData, putEditData }
-})
+  return { postData, getData, getJob, putStageData, putEditData };
+});
