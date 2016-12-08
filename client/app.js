@@ -1,34 +1,28 @@
-angular.module('at', [
-  'Form',
-  'SignUp',
-  'Services',
-  'ngRoute'
-])
+angular.module('at', ['at.services','ngRoute'])
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
-    .when('/', {
-      templateUrl: 'allApps.html',
-      controller: 'allAppsController',
-      authenticate: false //change to true once auth works
-    })
-    .when('/addApps', {
-      templateUrl: 'addApps.html',
-      controller: 'addAppsController',
-      authenticate: false //change to true once auth works
-    })
-    .when('/login', {
-      templateUrl: 'signup.html',
-      controller: 'AuthController'
-    })
-    .when('/signup', {
-      templateUrl: 'signup.html',
-      controller: 'AuthController'
-    })
-    .otherwise({
-      redirectTo: '/'
-    })
-})
-   $httpProvider.interceptors.push('AttachTokens'); // will attach token to the localStorage
+  .when('/', {
+    templateUrl: 'allApps.html',
+    controller: 'allAppsController',
+    authenticate: false //change to true once auth works
+  })
+  .when('/addApps', {
+    templateUrl: 'addApps.html',
+    controller: 'addAppsController',
+    authenticate: false //change to true once auth works
+  })
+  .when('/login', {
+    templateUrl: './login.html',
+    controller: 'AuthController'
+  })
+  .when('/signup', {
+    templateUrl: './signup.html',
+    controller: 'AuthController'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+  $httpProvider.interceptors.push('AttachTokens'); // will attach token to the localStorage
 })
 .factory('AttachTokens', function ($window) {
   var attach = {
