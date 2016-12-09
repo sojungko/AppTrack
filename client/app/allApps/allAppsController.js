@@ -1,7 +1,6 @@
 angular.module('at.allApps', [])
 
 .controller('AllAppsController', function ($scope, Application) {
-
   $scope.role = {};
   $scope.results = {};
   $scope.job = {};
@@ -9,6 +8,7 @@ angular.module('at.allApps', [])
   $scope.edit = {};
 
   $scope.getJobData = () => {
+    console.log('GETTING JOBS');
     Application.getData()
       .then((forms) => {
         $scope.results = forms.reverse();
