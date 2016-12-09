@@ -24,14 +24,14 @@ angular.module('at.services', [])
 
   const putStageData = (id, stages) => $http({
     method: 'POST',
-    url: `/form/${id}`,
+    url: `/api/form/${id}`,
     data: { stages },
   })
     .then((resp) => resp.data);
 
   const putEditData = (id, edit) => $http({
     method: 'POST',
-    url: `/edit/${id}`,
+    url: `/api/edit/${id}`,
     data: { edit },
   })
     .then((resp) => resp.data);

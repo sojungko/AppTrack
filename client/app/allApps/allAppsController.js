@@ -34,6 +34,7 @@ angular.module('at.allApps', [])
   };
 
   $scope.pushToStages = ($index) => {
+    console.log("IDDDDD in pushtostages", $scope.results[$index]._id);
     Application.putStageData($scope.results[$index]._id, $scope.stageattrs)
       .then(() => {
         $scope.stageattrs = {};
@@ -52,6 +53,7 @@ angular.module('at.allApps', [])
 
   $scope.save = ($index, edit) => {
     $scope.edit.editorEnabled = false;
+    console.log("IDDDDD in save", $scope.results[$index]._id);
     Application.putEditData($scope.results[$index]._id, $scope.edit)
       .then(() => {
         $scope.edit = {};
