@@ -6,6 +6,8 @@ angular.module('at.addApps', [])
 
   $scope.submitForm = () => {
     Application.postData($scope.data)
-      .then((resp) => resp);
+      .then(() => {
+        console.log('fsgfsgsfgsfgsfgsgs');
+      });
   };
 });

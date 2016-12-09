@@ -1,6 +1,5 @@
 const router = require('express').Router();
-console.log('routes.js', router);
-const positionController = require('./positions/positionController.js');
+const applicationController = require('./applications/applicationController.js');
 const userController = require('./users/userController.js');
 
 //post request endpoint that is initialized in our $http post request in our Angular formController.
@@ -9,7 +8,7 @@ const userController = require('./users/userController.js');
 router.post('/api/users/signup', userController.signUp);
 router.post('/api/users/signin', userController.signIn);
 
-router.post('/api/form', positionController.newPosition);
+router.post('/api/form', applicationController.createApplication);
 
 // function(req, res) {
 //   new Position({
@@ -36,7 +35,7 @@ router.post('/api/form', positionController.newPosition);
 // });
 
 // get request endpoint for $http get request made in the getData factory function.
-router.get('/api/form', positionController.allPositions);
+router.get('/api/form', applicationController.allPositions);
 
 router.put('/api/form/:id', function(req, res) {
   Position.findByIdAndUpdate(req.params.id, {

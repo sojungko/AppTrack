@@ -11,12 +11,12 @@ angular.module('at', [
   .when('/', {
     templateUrl: './app/allApps/allApps.html',
     controller: 'AllAppsController',
-    authenticate: true, //change to true once auth works
+    authenticate: false, //change to true once auth works
   })
   .when('/addApps', {
     templateUrl: './app/addApps/addApps.html',
     controller: 'AddAppsController',
-    authenticate: true, //change to true once auth works
+    authenticate: false, //change to true once auth works
   })
   .when('/login', {
     templateUrl: './app/login/login.html',
