@@ -29,4 +29,22 @@ module.exports = {
         console.log("ERROR in creating position, server/positions/positionController : ", err);
       });
   },
+
+	addStage(req, res) {
+	  positionModel.findByIdAndUpdate(req.params.id, {
+	    $push: {
+	      "stages": req.body
+	    }
+	  },
+	  function(err, stage) {
+	    res.send(stage)
+	  });
+	},
+
+	editStage(req, res) {
+	  console.log('THIS IS REQ.BODY EDIT INFO: ', req.body)
+		//   Position.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
+		//     res.send(stage)
+		//   });
+	},
 };
