@@ -5,7 +5,7 @@ const User = require('./users/userModel.js');
 
 //post request endpoint that is initialized in our $http post request in our Angular formController.
 // This saves all form inputs to our database which can be viewed via https://mlab.com/
-router.post('/form', function(req, res) {
+router.post('/api/form', function(req, res) {
   new Position({
     startDate: req.body.data.startDate,
     companyName: req.body.data.companyName,
@@ -36,12 +36,11 @@ router.get('/api/form', function(req, res) {
    * so all postitions in the db will be sent back.
    */
   Position.find(function(err, positions) {
-    console.log('++++ routes.js', positions);
     res.send(positions);
   });
 });
 
-router.put('/form/:id', function(req, res) {
+router.put('/api/form/:id', function(req, res) {
   Position.findByIdAndUpdate(req.params.id, {
     $push: {
       "stages": req.body
@@ -52,7 +51,7 @@ router.put('/form/:id', function(req, res) {
   });
 });
 
-router.put('/edit/:id', function(req, res) {
+router.put('/api/edit/:id', function(req, res) {
   console.log('THIS IS REQ.BODY EDIT INFO: ', req.body)
   Position.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
     res.send(stage)
