@@ -7,6 +7,16 @@ angular.module('at.allApps', [])
   $scope.stageattrs = {};
   $scope.edit = {};
 
+  $scope.stageSelect = [
+    'Select Stage Type',
+    'Phone Interview',
+    'In-Person Interview(One)',
+    'Whiteboarding Session',
+    'In-Person Interview(Group)',
+    'Full-Day Interview Session',
+    'Coding Challenge',
+  ];
+
   $scope.getJobData = () => {
     console.log('AllAppsController.js: getJobData invoked');
     Application.getData()
