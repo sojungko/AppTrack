@@ -1,9 +1,15 @@
 const router = require('express').Router();
 const Position = require('./positions/positionModel.js');
 const User = require('./users/userModel.js');
+const email = require('./email/emailModel.js')
 
 //post request endpoint that is initialized in our $http post request in our Angular formController.
 // This saves all form inputs to our database which can be viewed via https://mlab.com/
+router.get('/sendMail', function(req, res) {
+  console.log('TRYING TO SEND Email');
+  email.send(req, res);
+});
+
 router.post('/form', function(req, res) {
   new Position({
     startDate: req.body.data.startDate,
