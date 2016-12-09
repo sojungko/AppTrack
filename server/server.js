@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, '/../node_modules')));
 
 const url = 'mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@ds127998.mlab.com:27998/apptrack';
 mongoose.connect(url);
-console.log(url);
+mongoose.Promise = global.Promise;
 
 const port = process.env.PORT || 5000;
 
