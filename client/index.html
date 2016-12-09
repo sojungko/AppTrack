@@ -18,33 +18,30 @@
   <!-- Definining Angular app -->
   <body>
 
-    <!-- Header -->
-    <header class="">
+    <!-- TOP ROW: Title, Search.  Always visible -->
+    <div class="mdl-layout__header-row">
 
-      <!-- TOP ROW: Title, Search.  Always visible -->
-      <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span style="font-family: Pacifico" id="title">AppTrak</span>
 
-        <!-- Title -->
-        <span style="font-family: Pacifico" id="title">AppTrak<img src="Assets/Railway.png"/></span>
+      <div class="mdl-layout-spacer"></div>
 
-        <div class="mdl-layout-spacer"></div>
+      <!-- Search Icon -->
+      <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
+        mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
+          <i class="material-icons">search</i>
+        </label>
+      </div>
 
-        <!-- Search Icon -->
-        <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
-          mdl-textfield--floating-label mdl-textfield--align-right">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
-            <i class="material-icons">search</i>
-          </label>
-        </div>
+    </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
 
-      </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
+    <!-- BOTTOM ROW, not visible on scroll -->
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
 
-      <!-- BOTTOM ROW, not visible on scroll -->
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer"></div>
-
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
 
           <!-- Add Aps/All Apps Button -->
           <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
@@ -62,9 +59,9 @@
             </button>
           </div>
 
-        </nav> <!-- Closing Navigation -->
-      </div> <!-- Closing BOTTOM ROW -->
-    </header> <!-- Closing HEADER -->
+
+      </nav> <!-- Closing Navigation -->
+    </div> <!-- Closing BOTTOM ROW -->
 
     <div class="rows" ng-view></div>
 
