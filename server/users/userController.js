@@ -1,4 +1,4 @@
-const User = require('./userModel.js');
+const userModel = require('./userModel.js');
 const jwt = require('jwt-simple');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
 	  var username = req.body.username;
 	  var password = req.body.password;
 
-	  User.findOne({ username: username })
+	  userModel.findOne({ username: username })
 	    .exec((err, user) => {
 	      if (!user) {
 	        var newUser = new User({
@@ -31,12 +31,12 @@ module.exports = {
 	  var username = req.body.username;
 	  var password = req.body.password;
 
-	  User.findOne({ username: username })
+	  userModel.findOne({ username: username })
 	    .exec(function(err, user) {
 	      if (!user) {
 	        res.redirect('/login'); //is this redirect going to work?
 	      } else {
-	        User.comparePassword(password, user.password, function(err, match) {
+	        userModel.comparePassword(password, user.password, function(err, match) {
 	          if (match) {
 	            var token = jwt.encode(username, 'apptrak');
 							res.send(token);

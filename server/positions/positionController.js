@@ -1,10 +1,10 @@
 const Q = require('q');
-const Position = require('./positionModel.js');
+const positionModel = require('./positionModel.js');
 // this file is not used -- im not sure what that means??
 
-const findPosition = Q.nbind(Position.findOne, Position);
-const createPosition = Q.nbind(Position.create, Position);
-const findAllPositions = Q.nbind(Position.find, Position);
+const findPosition = Q.nbind(positionModel.findOne, positionModel);
+const createPosition = Q.nbind(positionModel.create, positionModel);
+const findAllPositions = Q.nbind(positionModel.find, positionModel);
 
 module.exports = {
 	allPositions: (req, res) => {
