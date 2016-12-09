@@ -3,7 +3,7 @@
   <div id="positions">
 
     <!-- ALL APPLICATION VIEW title -->
-    <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
+    <h1 id="openApps">Open Applications</h1>
 
     <!-- Application Search -->
     <div style="margin-left: 100px"  class="mdl-textfield mdl-js-textfield">Search:
@@ -11,7 +11,7 @@
     </div>
 
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
-    <ul class="animated zoomIn" ng-repeat='result in results' ng-model='results'>
+    <ul ng-repeat='result in results' ng-model='results'>
 
       <div id="list-item">
 
