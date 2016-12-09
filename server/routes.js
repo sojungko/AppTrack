@@ -1,4 +1,5 @@
 const router = require('express').Router();
+console.log('routes.js', router);
 const Position = require('./positions/positionModel.js');
 const User = require('./users/userModel.js');
 
@@ -29,9 +30,13 @@ router.post('/form', function(req, res) {
 });
 
 // get request endpoint for $http get request made in the getData factory function.
-router.get('/form', function(req, res) {
-  //.find is a MongoDb method that will retrieve all data corresponding data that matches given conditions. Here there are no conditions set, so all postitions in the db will be sent back.
+router.get('/api/form', function(req, res) {
+  /* find is a MongoDb method that will retrieve all data corresponding
+   * data that matches given conditions. Here there are no conditions set,
+   * so all postitions in the db will be sent back.
+   */
   Position.find(function(err, positions) {
+    console.log('++++ routes.js', positions);
     res.send(positions);
   });
 });
