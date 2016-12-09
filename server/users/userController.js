@@ -1,57 +1,50 @@
 const User = require('./userModel.js');
-// this file posts is not currently used
+const jwt = require('jwt-simple');
 
 module.exports = {
-	signUp: function(req, res) {
-	  var username = req.body.data.username;
-	  var password = req.body.data.password;
+	signUp: (req, res) => {
+	  var username = req.body.username;
+	  var password = req.body.password;
 
-	  User.find({ username: username },
-	    function(err, user) {
+	  User.findOne({ username: username })
+	    .exec((err, user) => {
 	      if (!user) {
 	        var newUser = new User({
 	          username: username,
 	          password: password
 	        });
-
 	        newUser.save(function(err, newUser) {
 	          if (err) {
 	            res.status(500).send(err);
 	          }
-	          createSession(req, res, newUser);
+						var token = jwt.encode(username, 'apptrak')
+	          res.send(token);
 	        });
 	      } else {
 	        console.log('Account already exists');
+	        res.send(401);
 	      }
 	    });
 	},
 
+	signIn: (req, res) => {
+	  var username = req.body.username;
+	  var password = req.body.password;
 
-  signIn: function(req, res) {
-		User.find({ username: req.body.data.username },
-		  function(err, user) {
+	  User.findOne({ username: username })
+	    .exec(function(err, user) {
 	      if (!user) {
-		  		console.log('User not found! Have you signed up yet?');
-		  	}
-
-		  	if (user) {
-		  		if (req.body.data.password === user.password) {
-		  			createSession(req, res, user);
-		  		} else {
-		  			console.log('Authentication failed.')
-		  		}
-		  	}
-
-		  	if (err) {
-		  		console.log(err);
-		  	}
-		  })
-	},
-
-  createSession: function(req, res, newUser) {
-	  return req.session.regenerate(function() {
-	      req.session.user = newUser;
-	      res.redirect('/');
+	        res.redirect('/login'); //is this redirect going to work?
+	      } else {
+	        User.comparePassword(password, user.password, function(err, match) {
+	          if (match) {
+	            var token = jwt.encode(username, 'apptrak');
+							res.send(token);
+	          } else {
+	            res.send(401);
+	          }
+	        });
+	      }
 	    });
-	}
+	},
 }
