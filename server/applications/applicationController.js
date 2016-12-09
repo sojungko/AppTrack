@@ -18,7 +18,6 @@ module.exports = {
   },
 
   createApplication({ body: { form } }, res) {
-    console.log('positionController: ', form);
     createApplication(form)
       .then((newApplication) => {
         if (newApplication) {
@@ -30,4 +29,19 @@ module.exports = {
         console.log("ERROR in creating position, server/positions/positionController : ", err);
       });
   },
+
+  addStage(req, res) {
+  	positionModel.findByIdAndUpdate(req.params.id, {
+	    $push: {
+	      "stages": req.body
+      }
+    });
+  },
+
+	editStage(req, res) {
+	  positionModel.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
+	    res.send(stage)
+	  });
+  }
+
 };
