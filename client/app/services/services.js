@@ -52,7 +52,10 @@ angular.module('at.services', [])
     url: '/api/users/signup',
     data: { username, password },
   })
-    .then(({ data: { token } }) => token);
+    .then((data) => {
+      console.log('DATA : ', data);
+      return data.token
+    });
 
   const isAuth = () => !!$window.localStorage.getItem('app-trak');
 

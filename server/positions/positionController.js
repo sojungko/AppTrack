@@ -7,7 +7,7 @@ const createPosition = Q.nbind(positionModel.create, positionModel);
 const findAllPositions = Q.nbind(positionModel.find, positionModel);
 
 module.exports = {
-	allPositions: (req, res) => {
+	allPositions(req, res) {
 		findAllPositions({})
 			.then((positions) => {
 				res.json(positions);
@@ -17,7 +17,7 @@ module.exports = {
 			});
 	},
 
-	newPosition: (req, res) => {
+	newPosition(req, res) {
 		createPosition(req.body.data)
 		  .then((createdPosition) => {
 		  	if (createdPosition) {
