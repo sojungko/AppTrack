@@ -51,17 +51,8 @@
           <div ng-click="toggle = !toggle">
             <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised">
               <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">
-                <span ng-show="toggle">Add App</span>
-                <span ng-hide="toggle">All Apps</span>
-              </a>
-            </button>
-          </div>
-
-        <!-- Analytics Button -->
-          <div>
-            <button ng-click="" class="mdl-button--raised">
-              <a ng-click="" class="mdl-navigation__link" href="https://www.google.com/analytics/#?modal_active=none">
-                Analytics
+                <a href="/#/addApps" class="mdl-navigation__link" ng-show="toggle">Add App</a>
+                <a href="/#/" class="mdl-navigation__link" ng-hide="toggle">All Apps</a>
               </a>
             </button>
           </div>
@@ -69,6 +60,8 @@
         </nav> <!-- Closing Navigation -->
       </div> <!-- Closing BOTTOM ROW -->
     </header> <!-- Closing HEADER -->
+
+    <div class="rows" ng-view></div>
 
     <script src="app.js"></script>
     <script src="/allApps/allAppsController.js"></script>

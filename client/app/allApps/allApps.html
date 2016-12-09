@@ -1,6 +1,6 @@
 <div class="container">
   <!-- ALL APPLICATION VIEW using FormController, Display depends on ng-show showDiv -->
-  <div id="positions" ng-controller="AllAppsController" ng-hide="!showDiv">
+  <div id="positions">
 
     <!-- ALL APPLICATION VIEW title -->
     <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
@@ -11,11 +11,11 @@
     </div>
 
     <!-- ng-repeat Application -->
-    <ul class="animated zoomIn" id ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
+    <ul class="animated zoomIn" ng-repeat='result in results' ng-model='results'>
 
       <div id="list-item">
 
-        <!-- Individual Application Card -->
+        <!-- Individual Application Card a-->
         <li id="card">
           <div id="card-title"><strong>Open Position</strong><br></div>
 
