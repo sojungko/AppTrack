@@ -42,9 +42,9 @@ module.exports = {
 	},
 
 	editStage(req, res) {
-	  console.log('THIS IS REQ.BODY EDIT INFO: ', req.body)
-		//   Position.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
-		//     res.send(stage)
-		//   });
+	  console.log('THIS IS REQ.BODY EDIT INFO: ', req.body);
+	  positionModel.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
+	    res.send(stage)
+	  });
 	},
 };
