@@ -8,8 +8,10 @@ angular.module('at.allApps', [])
   $scope.edit = {};
 
   $scope.getJobData = () => {
+    console.log('AllAppsController.js: getJobData invoked');
     Application.getData()
       .then((forms) => {
+        console.log('allAppsController', forms.reverse());
         $scope.results = forms.reverse();
       });
   };
