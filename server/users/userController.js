@@ -1,23 +1,20 @@
 const userModel = require('./userModel.js');
 const jwt = require('jwt-simple');
-var bcrypt = require('bcrypt-nodejs');
+const bcrypt = require('bcrypt-nodejs');
 
 
 module.exports = {
 	signUp(req, res) {
-		console.log('REQUEST.Body : ', req.body)
 	  var username = req.body.username;
 	  var password = req.body.password;
-		// var email = req.body.email;
 
 	  userModel.findOne({ username: username })
 	    .exec((err, user) => {
 	      if (!user) {
 					bcrypt.hash(password, null, null, (err, hash) => {
-						var newUser = new User({
+						var newUser = new userModel({
 							username: username,
 							password: hash,
-							email: email
 						});
 						newUser.save(function(err, newUser) {
 							if (err) {
