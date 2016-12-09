@@ -31,6 +31,7 @@ module.exports = {
   },
 
 	addStage(req, res) {
+		console.log('ADD STAGE REQBODY : ', req.body);
 	  positionModel.findByIdAndUpdate(req.params.id, {
 	    $push: {
 	      "stages": req.body
@@ -42,7 +43,7 @@ module.exports = {
 	},
 
 	editStage(req, res) {
-	  console.log('THIS IS REQ.BODY EDIT INFO: ', req.body);
+	  console.log('EDIT STAGE REQBODY: ', req.body);
 	  positionModel.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
 	    res.send(stage)
 	  });
