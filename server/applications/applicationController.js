@@ -42,7 +42,8 @@ module.exports = {
   },
 
 	editStage(req, res) {
-	  applicationModel.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
+    delete req.body.edit.editorEnabled;
+	  applicationModel.findByIdAndUpdate(req.params.id, req.body.edit, function(err, stage) {
 	    res.send(stage)
 	  });
   }
