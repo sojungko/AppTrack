@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 
 const PositionSchema = new mongoose.Schema({
+	userId: Number,
 	startDate: String,
 	companyName: String,
 	role: String,
@@ -23,7 +24,8 @@ const PositionSchema = new mongoose.Schema({
 	initialComp: Number,
 	negotiated: Boolean,
 	finalComp: Number,
-	acceptReject: Boolean
+	acceptReject: Boolean,
+	isOpen: Boolean
 })
 
 module.exports = mongoose.model('Position', PositionSchema);
