@@ -2,11 +2,11 @@ angular.module('at.services', [])
 
 .factory('Application', ($http) => {
   const postData = (form) => $http({
-    method: 'POST',
-    url: '/api/form',
-    data: { form },
-  })
-    .then(({ data }) => data);
+      method: 'POST',
+      url: '/api/form',
+      data: { form },
+    })
+      .then(({ data }) => data);
 
   const getData = () => $http({
       method: 'GET',
