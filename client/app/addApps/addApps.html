@@ -1,14 +1,14 @@
 <div class="container">
   <!-- ADD APP VIEW using FormController, Display depends on ng-show hideDiv  -->
-  <div id="form" ng-controller="AddAppsController" ng-show="!hideDiv">
+  <div id="form">
     <form>
-      <div id="outreach" class="mdl-textfield mdl-js-textfield">
+      <div id="outreach">
 
         <!--  ADD APP VIEW Title -->
-        <h1 class="animated fadeIn" style="font-family: 'Carme', sans-serif;">New Application</h1>
+        <h1>New Application</h1>
 
         <!-- First Column -->
-        <div class="animated fadeIn" id="first">
+        <div id="first">
           <input id="field" class="mdl-textfield__input" type="text" placeholder="Job Search Start Date" ng-model="data.startDate">
           <input id="field" class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
           <input id="field" class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
@@ -19,7 +19,7 @@
         </div> <!-- Closing First Column -->
 
         <!-- Second Column -->
-        <div class="animated fadeIn" id="second">
+        <div id="second">
           <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
           <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
           <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Type" ng-model="data.contactType">
@@ -31,7 +31,7 @@
           <br><br>
 
           <!-- Add Button -->
-          <button ng-click='submitForm()' id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
+          <button ng-click='submitForm()' id="addButton">Add</button>
         </div> <!-- Closing Second Column -->
 
       </div> <!-- Closing outreach div -->
