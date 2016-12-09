@@ -38,16 +38,7 @@ router.post('/api/form', positionController.newPosition);
 // get request endpoint for $http get request made in the getData factory function.
 router.get('/api/form', positionController.allPositions);
 
-router.put('/api/form/:id', function(req, res) {
-  Position.findByIdAndUpdate(req.params.id, {
-    $push: {
-      "stages": req.body
-    }
-  },
-  function(err, stage) {
-    res.send(stage)
-  });
-});
+router.post('/api/form/:id', positionController.addStage);
 
 router.put('/api/edit/:id', function(req, res) {
   console.log('THIS IS REQ.BODY EDIT INFO: ', req.body)
