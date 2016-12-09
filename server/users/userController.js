@@ -4,10 +4,11 @@ var bcrypt = require('bcrypt-nodejs');
 
 
 module.exports = {
-	signUp: (req, res) => {
+	signUp(req, res) {
+		console.log('REQUEST.Body : ', req.body)
 	  var username = req.body.username;
 	  var password = req.body.password;
-		var email = req.body.email;
+		// var email = req.body.email;
 
 	  userModel.findOne({ username: username })
 	    .exec((err, user) => {
@@ -33,7 +34,7 @@ module.exports = {
 	    });
 	},
 
-	signIn: (req, res) => {
+	signIn(req, res) {
 	  var username = req.body.username;
 	  var password = req.body.password;
 
@@ -53,5 +54,5 @@ module.exports = {
 	        });
 	      }
 	    });
-	},
+	}
 }

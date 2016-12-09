@@ -6,17 +6,17 @@ const mongoose = require('mongoose');
 const router = require('./routes.js');
 const app = express();
 
-module.exports.app = app;
+module.exports = app;
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 
 app.use(router);
 app.use(express.static(path.join(__dirname, '/../client/')));
 app.use(express.static(path.join(__dirname, '/../client/app')));
 app.use(express.static(path.join(__dirname, '/../node_modules')));
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-app.use(bodyParser.json());
 
 const url = 'mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@ds127998.mlab.com:27998/apptrack';
 mongoose.connect(url);

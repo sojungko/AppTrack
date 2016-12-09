@@ -19,6 +19,7 @@ angular.module('at.auth', [])
   $scope.signup = () => {
     //pass entire user scope down
     //receives jwt encoded username after backend query to add user resolves
+    console.log('SCOPE.USER : ', $scope.user);
     Auth.signup($scope.user)
       .then((token) => {
         $window.localStorage.setItem('app-trak', token);
