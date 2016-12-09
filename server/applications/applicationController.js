@@ -31,7 +31,7 @@ module.exports = {
   },
 
   addStage(req, res) {
-  	positionModel.findByIdAndUpdate(req.params.id, {
+  	applicationModel.findByIdAndUpdate(req.params.id, {
 	    $push: {
 	      "stages": req.body
       }
@@ -42,7 +42,7 @@ module.exports = {
   },
 
 	editStage(req, res) {
-	  positionModel.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
+	  applicationModel.findByIdAndUpdate(req.params.id, req.body, function(err, stage) {
 	    res.send(stage)
 	  });
   }
