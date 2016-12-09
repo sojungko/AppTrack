@@ -9,16 +9,18 @@ angular.module('at.services', [])
     .then(({ data }) => data);
 
   const getData = () => $http({
-    method: 'GET',
-    url: '/api/form',
-  })
-    .then(({ data }) => data);
+      method: 'GET',
+      url: '/api/form',
+    })
+      .then(({ data }) => data);
 
   const getJob = (role) => $http({
     method: 'GET',
     url: `/api/form/${role}`,
   })
-    .then(({ data }) => data);
+    .then((resp) => {
+      console.log('services.js: ', resp);
+    });
 
   const putStageData = (id, stages) => $http({
     method: 'POST',
