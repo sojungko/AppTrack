@@ -7,6 +7,8 @@ angular.module('at.allApps', [])
   $scope.stageattrs = {};
   $scope.edit = {};
 
+  // Dropdown menu for Add Stage Card //
+
   $scope.stageSelect = [
     'Select Stage Type',
     'Phone Interview',
@@ -17,11 +19,9 @@ angular.module('at.allApps', [])
     'Coding Challenge',
   ];
 
-  $scope.getJobData = () => {
-    console.log('AllAppsController.js: getJobData invoked');
+  $scope.getJobData = () => {                                     // This works! //
     Application.getData()
       .then((forms) => {
-        console.log('allAppsController', forms.reverse());
         $scope.results = forms.reverse();
       });
   };
