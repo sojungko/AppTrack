@@ -35,6 +35,9 @@ module.exports = {
 	    $push: {
 	      "stages": req.body
       }
+    },
+    function(err, stage) {
+      res.send(stage)
     });
   },
 
