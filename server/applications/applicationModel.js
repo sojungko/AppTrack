@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const ApplicationSchema = new mongoose.Schema({
 	userId: String,
-	startDate: String,
+	startDate: Date,
 	companyName: String,
 	role: String,
 	jobDescription: String,
@@ -15,8 +15,8 @@ const ApplicationSchema = new mongoose.Schema({
 	contactPhone: Number,
 	contactEmail: String,
 	contactType: String,
-	dateApplied: String,
-	dateOfLastContact: String,
+	dateApplied: Date,
+	dateOfLastContact: Date,
 	replyReceived: Boolean,
 	stages: Array,
 	contractTime: Number,

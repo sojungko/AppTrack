@@ -7,6 +7,7 @@ angular.module('at.services', [])
     data: { form },
   })
     .then((resp) => resp.data);
+    //next http request to send form down to nodemailer
 
   const getData = () => $http({
       method: 'GET',
