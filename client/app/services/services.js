@@ -37,7 +37,13 @@ angular.module('at.services', [])
   })
     .then((resp) => resp.data);
 
-  return { postData, getData, getJob, putStageData, putEditData };
+  const deleteApp = (id) => $http({
+    method: 'POST',
+    url: `/api/delete/${id}`
+  })
+    .then((resp) => resp.data);
+
+  return { postData, getData, getJob, putStageData, putEditData, deleteApp };
 })
 
 .factory('Auth', ($http, $location, $window) => {

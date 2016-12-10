@@ -18,6 +18,8 @@ router.post('/api/form/:id', applicationController.addStage);
 
 router.post('/api/edit/:id', applicationController.editStage);
 
+router.post('/api/delete/:id', applicationController.deleteApp);
+
 router.post('/api/newAppEmail', email.newSend);
 
 router.post('/api/closedAppEmail', email.closedSend);
