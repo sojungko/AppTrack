@@ -12,7 +12,7 @@
 
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
     <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
-
+      <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
       <div id="list-item">
 
         <!-- 1) Open Position Card, has 5 fields -->

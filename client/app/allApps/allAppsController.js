@@ -19,6 +19,7 @@ angular.module('at.allApps', [])
     'Application Complete'
   ];
 
+
   $scope.getJobData = () => {                                     // This works! //
     Application.getData()
       .then((forms) => {
@@ -51,6 +52,13 @@ angular.module('at.allApps', [])
         $scope.getJobData();
       });
   };
+
+  $scope.delete = ($index) => {
+    Application.deleteApp($scope.results[$index]._id)
+      .then(() => {
+        $scope.getJobData();
+      })
+  }
 
   $scope.getJobData();
 });
