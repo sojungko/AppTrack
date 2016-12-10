@@ -10,13 +10,13 @@ angular.module('at.completedApps', [])
   // Dropdown menu for Add Stage Card //
 
   $scope.stageSelect = [
-    'Select Stage Type',
     'Phone Interview',
     'In-Person Interview(One)',
     'Whiteboarding Session',
     'In-Person Interview(Group)',
     'Full-Day Interview Session',
     'Coding Challenge',
+    'Application Complete'
   ];
 
   $scope.getJobData = () => {                                     // This works! //
