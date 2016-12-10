@@ -6,11 +6,11 @@ angular.module('at.services', [])
     url: '/api/form',
     data: { form },
   })
-    .then((resp) => {
+    .then((postDataResponse) => {
       $http({
         method: 'POST',
         url: '/api/newAppEmail',
-        data: form
+        data: postDataResponse
       })
     });
     //next http request to send form down to nodemailer

@@ -37,6 +37,7 @@ module.exports = {
 	      } else {
 	        bcrypt.compare(password, user.password, function(err, results) {
 	          if (results) {
+							console.log("USER WHEN SIGN IN: ", user);
 							var token = jwt.encode(user, 'apptrak');
 							res.send(token);
 	          } else {
