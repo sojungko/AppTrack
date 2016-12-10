@@ -1,64 +1,92 @@
-<div class="container">
+<!-- ADD APP VIEW using FormController-->
+<div id="addAppView">
 
-  <!-- ADD APP VIEW using FormController-->
-  <div id="addAppView">
+  <!--  ADD APP VIEW Title -->
+  <div class="page-header"><h1>New Application</h1></div>
 
-    <!--  ADD APP VIEW Title -->
-    <div class="page-header"><h1>New Application</h1></div>
+  <div class ="col-md-offset-2 col-md-10"> <!-- Bootstrap div for new application form-->
 
-    <form name='addNewApp' method='post' ng-submit="submitForm(signInForm.$valid)" novalidate>
-    <!-- First Column -->
-      <div>
-        <label>Application Start Date <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field" class="mdl-textfield__input" type="date" ng-model="data.startDate">
+    <!-- ADD NEW APPLICATION FORM INPUT FIELDS -->
+    <form name='addNewApp' method='post' ng-submit="submitForm(addNewApp.$valid)" novalidate>
+
+      <!-- APPLICATION START DATE: Optional-->
+      <div class="form-group">
+        <label>Application Start Date</label>
+        <input type="date" name="startDate" class="form-control" ng-model="data.startDate">
       </div>
-      <div>
+
+      <!-- COMPANY NAME: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : addNewApp.companyName.$invalid }">
         <label>Company Name <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model='data.companyName'>
-      </div>
-      <div>
-        <label>Position <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.role">
-      </div>
-      <div ng-controller="UploadController">
-          <label>Cover Letter Upload</label>
-          <div ngf-drop ngf-select ng-model="files" class="drop-box"
-              ngf-drag-over-class="'dragover'" ngf-allow-dir="true" ngf-pattern="'.doc,.docx,.pdf/*'"
-              >Drop file here to upload</div>
-      </div>
-      <div>
-        <label>Job Description <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.jobDescription">
-      </div>
-      <div>
-        <label>Applied Through</label>
-        <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.appliedThrough">
-      </div>
-      <div>
-        <label>Contact Name <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.contactName">
-      </div>
-      <div>
-        <label>Contact Phone Number <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field"  class="mdl-textfield__input" type="number" ng-model="data.contactPhone">
-      </div>
-      <div>
-        <label>Contact Email Address <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input class='form-control' id="field"  class="mdl-textfield__input" type="email" ng-model="data.contactEmail">
-      </div>
-      <div>
-        <label>Date Applied</label>
-        <input class='form-control' id="field"  class="mdl-textfield__input" type="date" ng-model="data.dateApplied">
-      </div>
-      <div>
-        <label>Date of Last Contact</label>
-        <input class='form-control' id="field"  class="mdl-textfield__input" type="date" ng-model="data.dateOfLastContact">
+        <input type="text" name="companyName" class="form-control" ng-model="data.companyName" required>
       </div>
 
-      <br><br>
+      <!-- POSITION: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : addNewApp.position.$invalid }">
+        <label>Position <img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="text" name="position" class="form-control" ng-model="data.role" required>
+      </div>
+
+      <!-- COVER LETTER: Optional-->
+      <div ng-controller="UploadController">
+        <label>Cover Letter Upload</label>
+        <div ngf-drop ngf-select ng-model="files" class="drop-box"
+            ngf-drag-over-class="'dragover'" ngf-allow-dir="true" ngf-pattern="'.doc,.docx,.pdf/*'"
+        >Drop file here to upload</div>
+      </div>
+
+      <!-- JOB DESCRIPTION: Optional-->
+      <div class="form-group">
+        <label>Job Description</label>
+        <input type="text" name="jobDescription" class="form-control" ng-model="data.jobDescription">
+      </div>
+
+      <!-- APPLIED THROUGH: Optional-->
+      <div class="form-group">
+        <label>Applied Through</label>
+        <input type="text" name="appliedThrough" class="form-control" ng-model="data.appliedThrough">
+      </div>
+
+      <!-- CONTACT NAME: Required-->
+      <div class="form-group" ng-class="{ 'has-error' : addNewApp.contactName.$invalid }">
+        <label>Contact Name <img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="text" name="contactName" class="form-control" ng-model="data.contactName" required>
+      </div>
+
+      <!-- CONTACT PHONE NUMBER: Required, Only accepts number-->
+      <div class="form-group" ng-class="{ 'has-error' : addNewApp.contactPhone.$invalid }">
+        <label>Contact Phone Number <img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="number" name="contactPhone" class="form-control" ng-model="data.contactPhone" required>
+      </div>
+
+      <!-- CONTACT EMAIL: Required, has to be validated-->
+
+      <div class="form-group" ng-class="{ 'has-error' : addNewApp.contactEmail.$invalid }">
+
+        <label>Contact Email Address<img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="email" name="contactEmail" class="form-control" ng-model="data.contactEmail" required>
+
+        <!-- Invalid input error message -->
+        <p ng-show="addNewApp.contactEmail.$invalid && !addNewApp.contactEmail.$pristine" class="help-block">Not a valid email.</p>
+      </div>
+
+      <!-- DATE APPLIED: Optional-->
+      <div class="form-group">
+        <label>Date Applied</label>
+        <input type="date" name="dateApplied" class="form-control" ng-model="data.dateApplied">
+      </div>
+
+      <!-- DATE OF LAST CONTACT: Optional-->
+      <div class="form-group">
+        <label>Date of Last Contact</label>
+        <input type="date" name="dateOfLastContact" class="form-control" ng-model="data.dateOfLastContact">
+      </div>
 
       <!-- Add Button -->
-      <button class='btn btn-warning' id="addButton">Add</button>
-    </form>
-  </div> <!--  Closing ADD APP VIEW -->
-</div>
+      <button class='btn btn-warning' ng-disabled="addNewApp.$invalid">Add</button>
+
+    </form> <!-- Closing ADD NEW APPLICATION FORM INPUT FIELDS -->
+  </div> <!-- Closing Bootstrap div for new application form -->
+</div> <!--  Closing ADD APP VIEW -->
+
+<br><br>

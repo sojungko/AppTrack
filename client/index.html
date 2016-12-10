@@ -4,6 +4,8 @@
     <link href="./styles/style.css" rel="stylesheet" type="text/css">
     <title>HoHTrak</title>
     <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- MATERIAL IO SCRIPTS BELOW -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,56 +19,59 @@
 
   <!-- Definining Angular app -->
   <body>
+    <div class="container-fluid">
 
-    <!-- TOP ROW: Title, Search.  Always visible -->
-    <div class="mdl-layout__header-row">
+      <!-- TOP ROW: Title, Search.  Always visible -->
+      <div class="mdl-layout__header-row">
 
-      <!-- Title -->
-      <h1 id="title"><a href="/">HoHTrak</a></h1>
+        <!-- Title -->
+        <h1 id="title"><a href="/">HoHTrak</a></h1>
 
-      <div class="mdl-layout-spacer"></div>
+        <div class="mdl-layout-spacer"></div>
 
-      <!-- Search Icon -->
-      <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
-        mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
-          <i class="material-icons">search</i>
-        </label>
-      </div>
+        <!-- Search Icon -->
+        <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
+          mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
+            <i class="material-icons">search</i>
+          </label>
+        </div>
 
-    </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
+      </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
 
-    <!-- BOTTOM ROW, not visible on scroll -->
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
+      <!-- BOTTOM ROW, not visible on scroll -->
+      <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
 
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
+        <!-- Navigation -->
+        <nav class="mdl-navigation">
 
-          <!-- Add Aps/All Apps Button -->
-          <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
-          <div ng-controller="AuthController">
-            <button class="btn btn-warning">
-              <a href="/" class="mdl-navigation__link" >All Apps</a>
-            </button>
-            <button class="btn btn-warning">
-              <a href="/#!/addApps" class="mdl-navigation__link">Add App</a>
-            </button>
-            <button class="btn btn-warning">
-              <a href="/#!/completedApps" class="mdl-navigation__link">Completed App</a>
-            </button>
-            <button class="btn btn-warning">
+            <!-- Add Aps/All Apps Button -->
+            <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
+            <div ng-controller="AuthController">
+              <button class="btn btn-warning">
+                <a href="/" class="mdl-navigation__link" >All Apps</a>
+              </button>
+              <button class="btn btn-warning">
+                <a href="/#!/addApps" class="mdl-navigation__link">Add App</a>
+              </button>
+              <button class="btn btn-warning">
+                <a href="/#!/completedApps" class="mdl-navigation__link">Completed App</a>
+              </button>
+              <button class="btn btn-warning">
 
-              <!-- TODO need to add the check for header token to show logout button!!!!! -->
-              <a href="/#!/login" class="mdl-navigation__link" ng-click="signout()">Logout</a>
-            </button>
-          </div>
+                <!-- TODO need to add the check for header token to show logout button!!!!! -->
+                <a href="/#!/login" class="mdl-navigation__link" ng-click="signout()">Logout</a>
+              </button>
+            </div>
 
-      </nav> <!-- Closing Navigation -->
-    </div> <!-- Closing BOTTOM ROW -->
+        </nav> <!-- Closing Navigation -->
+      </div> <!-- Closing BOTTOM ROW -->
 
-    <div class="rows" ng-view></div>
+      <div class="rows" ng-view></div>
 
+    </div>
+    <br /><br />
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
     <script src="ng-file-upload/dist/ng-file-upload.min.js"></script>
