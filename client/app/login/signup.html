@@ -1,7 +1,7 @@
 <div class="container" ng-controller='AuthController'>
   <div class="col-sm-6 col-sm-offset-3">
     <h1><span class="fa fa-sign-in"></span>Signup</h1>
-    <form method="post">
+    <form name="signUpForm" method="post">
       <div class="form-group">
         <label>Username</label>
         <input
@@ -10,8 +10,14 @@
           name="email"
           ng-model="user.username"
         >
-      </div>  <!-- closing email div line 5 -->
-      <div class="form-group">
+        <label>Email</label>
+        <input
+        type="email"
+        class="form-control"
+        name="email"
+        ng-model="user.email"
+        required
+        >
         <label>Password</label>
         <input
           type="password"
@@ -19,17 +25,8 @@
           name="password"
           ng-model="user.password"
         >
-      </div>  <!-- closing password div line 14 -->
-      <div class="form-group">
-        <label>Email</label>
-        <input
-          type="email"
-          class="form-control"
-          name="email"
-          ng-model="user.email"
-        >
       </div>  <!-- closing email div line 23 -->
-      <button type="submit" class="btn btn-warning btn-lg" ng-click='signup()'>Signup</button>
+      <button type="submit" class="btn btn-warning btn-lg" ng-click='signUpForm.$valid && signup()'>Signup</button>
     </form>  <!-- closing Post form line 4 -->
     <hr>
     <p>Already have an account? <a href="/#!/login">Login</a></p>
