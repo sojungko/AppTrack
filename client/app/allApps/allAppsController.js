@@ -2,7 +2,7 @@ angular.module('at.allApps', [])
 
 .controller('AllAppsController', function ($scope, Application) {
   $scope.role = {};
-  $scope.results = {};
+  $scope.results = [];
   $scope.job = {};
   $scope.stageattrs = {};
   $scope.edit = {};
@@ -52,7 +52,6 @@ angular.module('at.allApps', [])
 
   $scope.save = ($index, edit) => {
     $scope.edit.editorEnabled = false;
-    console.log("IDDDDD in save", $scope.results[$index]._id);
     Application.putEditData($scope.results[$index]._id, $scope.edit)
       .then(() => {
         $scope.edit = {};
@@ -61,5 +60,4 @@ angular.module('at.allApps', [])
   };
 
   $scope.getJobData();
-
 });
