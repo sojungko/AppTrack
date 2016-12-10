@@ -18,8 +18,7 @@ input {
 
 #title {
   margin-top: 60px;
-  font-size: 500%;]
-  font-family: 'Pacifico', cursive;
+  font-size: 500%;
 }
 
 #card-title {
@@ -69,11 +68,12 @@ col {
 }
 
 #card {
-  border-radius: 15px;
-  box-shadow: 10px 10px 5px lightgrey;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+  border-radius: 5px;
   width: 300px;
   height: 450px;
-  background-color:#fffee2;
   font: 10px helvetica, sans-serif;
   margin: 20px 20px 0 20px;
   float: left;
@@ -90,11 +90,12 @@ col {
 }
 
 .add-stage {
-  border-radius: 15px;
-  box-shadow: 10px 10px 5px lightgrey;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+  border-radius: 5px;
   width: 300px;
   height: 450px;
-  background-color:#e2ffe4;
   margin: 20px 20px 0 20px;
   float: left;
   display: block;
@@ -110,11 +111,12 @@ col {
 }
 
 #stage-name {
-  border-radius: 15px;
-  box-shadow: 10px 10px 5px lightgrey;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+  border-radius: 5px;
   width: 300px;
   height: 450px;
-  background-color:#ffe2e2;
   font-size: large;
   margin: 20px 20px 0 20px;
   position: relative;

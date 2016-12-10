@@ -13,7 +13,7 @@
         <!-- Input Field / Search Bar  -->
         <input
           type='text',
-          name='inputNewWishlist',
+          name='searchCompletedAppsQuery',
           ng-model='searchText',
           class="form-control"/>
 
@@ -23,8 +23,7 @@
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
     <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
 
-      <div id="list-item">
-
+      <div class="row">
         <!-- 1) Open Position Card, has 5 fields -->
         <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
         <li id="card">
@@ -112,10 +111,8 @@
           <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
           <br>
           <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        </div>
-
-      </div> <!-- Closing list-item -->
-      <br>
-    </ul> <!-- closing ng-repeat Application -->
+        </div><!-- Closing list-item -->
+      </ul> <!-- closing ng-repeat Application -->
+    </div><!-- Closing row -->
   </div> <!-- Closing ALL APPLICATION VIEW-->
 </div>
