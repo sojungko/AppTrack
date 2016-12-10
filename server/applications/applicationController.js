@@ -32,6 +32,10 @@ module.exports = {
       });
   },
 
+  uploadFile(req, res) {
+    console.log('REQUEST BODY : ', req.body);
+  },
+
   addStage(req, res) {
   	applicationModel.findByIdAndUpdate(req.params.id, {
 	    $push: {
