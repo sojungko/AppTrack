@@ -39,7 +39,7 @@ angular.module('at.services', [])
   const putStageData = (id, stages) => $http({
     method: 'POST',
     url: `/api/form/${id}`,
-    data: { stages },
+    data: stages,
   })
     .then((resp) => resp.data);
 
