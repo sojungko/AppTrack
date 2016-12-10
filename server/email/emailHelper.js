@@ -2,11 +2,6 @@ var Apps = require('../applications/applicationModel.js');
 var Users = require('../users/userModel.js');
 var emails = require('./emailModel.js');
 
-
-//  = Apps.find({}).toArray(function(err, results) {
-//   if(err) {console.log('ERROR: ', err)}
-//   return
-// });
 var weeklyReminderSender = function() {
   var reg = /\w+/;
   var user;

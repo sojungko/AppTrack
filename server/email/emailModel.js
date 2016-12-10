@@ -41,7 +41,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the deleted App email system! You have ' + numberOfApps +' applications still open!' 
+      text: 'This is a test of the deleted App email system!' 
     }
   }
 };
