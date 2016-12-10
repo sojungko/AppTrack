@@ -4,7 +4,9 @@ angular.module('at', [
   'at.completedApps',
   'at.auth',
   'at.services',
+  'at.upload',
   'ngRoute',
+  'ngFileUpload'
 ])
 
 .config(($routeProvider, $locationProvider, $httpProvider) => {
