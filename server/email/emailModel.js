@@ -28,7 +28,7 @@ var templates = {
       text: 'This is a test of the closed application email system!' 
     }
   },
-  weeklyReminder: function(username ,userEmail, jobDescription, companyName) {
+  weeklyReminder: function(username ,userEmail, numberOfApps) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' + userEmail + '>',
@@ -47,11 +47,12 @@ var testMailOptions = {
 
 var email = {
   send: function(req, res) {
-    transporter.sendMail(testMailOptions, function(error, info) {
+    var options = templates.weeklyReminder(req.body.username, req.body.email, req.body.data);
+    transporter.sendMail(options, function(error, info) {
       if(error) {
         return console.log('ERROR: ', error);
       }
-      console.log('Message Sent: ', info.response);
+      console.log('Weekly Reminder Message Sent to ' + req.body.username + ': ', info.response);
     })
   },
   newSend: function(req, res) {

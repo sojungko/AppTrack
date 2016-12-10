@@ -22,6 +22,8 @@ router.post('/api/newAppEmail', email.newSend);
 
 router.post('/api/closedAppEmail', email.closedSend);
 
+router.post('/api/reminder', email.send);
+
 
 
 module.exports = router;
