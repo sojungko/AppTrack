@@ -1,6 +1,7 @@
 angular.module('at', [
   'at.addApps',
   'at.allApps',
+  'at.completedApps',
   'at.auth',
   'at.services',
   'ngRoute',
@@ -16,6 +17,11 @@ angular.module('at', [
   .when('/addApps', {
     templateUrl: './app/addApps/addApps.html',
     controller: 'AddAppsController',
+    authenticate: true, //change to true once auth works
+  })
+  .when('/completedApps', {
+    templateUrl: './app/completedApps/completedApps.html',
+    controller: 'CompletedAppsController',
     authenticate: true, //change to true once auth works
   })
   .when('/login', {
