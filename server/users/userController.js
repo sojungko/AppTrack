@@ -29,7 +29,7 @@ module.exports = {
 	    });
 	},
 
-	signIn( { body: { username, password, email } }, res) {
+	signIn( { body: { username, password } }, res) {
 	  userModel.findOne({ username: username })
 	    .exec(function(err, user) {
 	      if (!user) {
