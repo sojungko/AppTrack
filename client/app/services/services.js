@@ -6,7 +6,13 @@ angular.module('at.services', [])
     url: '/api/form',
     data: { form },
   })
-    .then((resp) => resp.data);
+    .then((resp) => {
+      $http({
+        method: 'POST',
+        url: '/api/newAppEmail',
+        data: form
+      })
+    });
     //next http request to send form down to nodemailer
 
     const postFile = (file) => $http({
@@ -48,7 +54,13 @@ angular.module('at.services', [])
     method: 'POST',
     url: `/api/delete/${id}`
   })
-    .then((resp) => resp.data);
+    .then((resp) => {
+      $http({
+        method: 'POST',
+        url: '/api/deleteAppEmail',
+        data: resp
+      })
+    });
 
   return { postData, getData, getJob, putStageData, putEditData, deleteApp };
 })
