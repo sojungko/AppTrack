@@ -1,38 +1,40 @@
-<div class="col-md-8 col-md-offset-2">
+<div id = "logInView">
 
   <!--Page Title -->
   <div class="page-header"><h1>Login</h1></div>
 
-  <!-- Sign Up Form Input Fields -->
-  <form name="signInForm" ng-submit="signin(signInForm.$valid)" novalidate>
+  <div class ="col-md-offset-2 col-md-10">
 
-    <!-- Email: Required field, has to be validated -->
-    <div class="form-group" ng-class="{ 'has-error' : signInForm.username.$invalid && !signInForm.username.$pristine }">
+    <!-- Sign Up Form Input Fields -->
+    <form name="signInForm" ng-submit="signin(signInForm.$valid)" novalidate>
 
-      <label>Username<img height='10px' width='10px' src='../Assets/required.png' /></label>
-      <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="6" ng-maxlength="20">
+      <!-- Email: Required field, has to be validated -->
+      <div class="form-group" ng-class="{ 'has-error' : signInForm.username.$invalid && !signInForm.username.$pristine }">
 
-      <!-- Invalid input error message -->
-      <p ng-show="signInForm.username.$error.minlength" class="help-block">Username is too short.</p>
-      <p ng-show="signInForm.username.$error.maxlength" class="help-block">Username is too long.</p>
-    </div>
+        <label>Username<img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="6" ng-maxlength="20">
 
-    <!-- Password: Required field, has to be validated -->
-    <div class="form-group" ng-class="{ 'has-error' : signInForm.password.$invalid && !signInForm.password.$pristine }">
+        <!-- Invalid input error message -->
+        <p ng-show="signInForm.username.$error.minlength" class="help-block">Username is too short.</p>
+        <p ng-show="signInForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+      </div>
 
-      <label>Password <img height='10px' width='10px' src='../Assets/required.png' /></label>
-      <input type="password" name="password" class="form-control" ng-model="user.password" required>
+      <!-- Password: Required field, has to be validated -->
+      <div class="form-group" ng-class="{ 'has-error' : signInForm.password.$invalid && !signInForm.password.$pristine }">
 
-      <!-- Invalid input error message -->
-      <p ng-show="signInForm.password.$invalid && !signInForm.password.$pristine" class="help-block">Please Enter a password</p>
-    </div>
+        <label>Password <img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="password" name="password" class="form-control" ng-model="user.password" required>
 
-    <button type="submit" class="btn btn-primary" ng-disabled="signInForm.$invalid">Signin</button>
+        <!-- Invalid input error message -->
+        <p ng-show="signInForm.password.$invalid && !signInForm.password.$pristine" class="help-block">Please Enter a password</p>
+      </div>
 
-  </form> <!-- Closing Log In From Input Fields -->
+      <button type="submit" class="btn btn-primary" ng-disabled="signInForm.$invalid">Log In</button>
 
-  <br>
+    </form> <!-- Closing Log In From Input Fields -->
 
-  <p>Need an account? <a href="/#!/signup">Signup</a></p>
-  
-</div>  <!-- Closing Bootstrap Grid div -->
+    <br>
+    <p class ="col-md-offset-1 col-md-10">Need an account? <a href="/#!/signup">Sign up</a></p>
+
+  </div>  <!-- Closing Bootstrap Grid div -->
+</div> <!-- Closing logInView -->
