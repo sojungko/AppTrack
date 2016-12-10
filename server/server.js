@@ -4,6 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser'); //
 const mongoose = require('mongoose');
 const router = require('./routes.js');
+const weeklyReminder = require('./email/emailHelper.js')
 const app = express();
 
 module.exports = app;
@@ -30,6 +31,7 @@ app.listen(port, (err) => {
   if (err) {
     console.log('Error occurred : ', err);
   } else {
+    weeklyReminder();
     console.log('Server is listening to port : ', port);
   }
 });
