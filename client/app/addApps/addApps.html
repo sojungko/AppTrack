@@ -6,34 +6,60 @@
 
         <!--  ADD APP VIEW Title -->
         <h1>New Application</h1>
-
+        <form method='post'>
         <!-- First Column -->
-        <div id="first">
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="Job Search Start Date" ng-model="data.startDate">
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="CoverLetter" ng-model="coverLetter">
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="Job Description" ng-model="data.jobDescription">
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
-          <input id="field" class="mdl-textfield__input" type="text" placeholder="Contact Name" ng-model="data.contactName">
-        </div> <!-- Closing First Column -->
+          <div>
+            <label>Application Start Date</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="date" ng-model="data.startDate">
+          </div>
+          <div>
+            <label>Company Name</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model=data.companyName>
+          </div>
+          <div>
+            <label>Position</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.role">
+          </div>
+          <div>
+            <label>Cover Letter Upload</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="coverLetter">
+          </div>
+          <div>
+            <label>Job Description</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.jobDescription">
+          </div>
+          <div>
+            <label>Applied Through</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.appliedThrough">
+          </div>
+          <div>
+            <label>Contact Name</label>
+            <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.contactName">
+          </div>
 
         <!-- Second Column -->
-        <div id="second">
-          <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
-          <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
-          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Type" ng-model="data.contactType">
-          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date Applied" ng-model="data.dateApplied">
-          <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
-          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
-          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
+          <div>
+            <label>Contact Phone Number</label>
+            <input class='form-control' id="field"  class="mdl-textfield__input" type="tel" ng-model="data.contactPhone">
+          </div>
+          <div>
+            <label>Contact Email Address</label>
+            <input class='form-control' id="field"  class="mdl-textfield__input" type="email" ng-model="data.contactEmail">
+          </div>
+          <div>
+            <label>Date Applied</label>
+            <input class='form-control' id="field"  class="mdl-textfield__input" type="date" ng-model="data.dateApplied">
+          </div>
+          <div>
+            <label>Date of Last Contact</label>
+            <input class='form-control' id="field"  class="mdl-textfield__input" type="date" ng-model="data.dateOfLastContact">
+          </div>
 
           <br><br>
 
           <!-- Add Button -->
-          <button ng-click='submitForm()' id="addButton">Add</button>
-        </div> <!-- Closing Second Column -->
-
+          <button class='btn btn-warning' ng-click='submitForm()' id="addButton">Add</button>
+        </form>
       </div> <!-- Closing outreach div -->
     </form> <!-- Closing form -->
   </div> <!--  Closing ADD APP VIEW -->
