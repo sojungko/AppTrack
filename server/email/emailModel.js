@@ -17,7 +17,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' + userEmail + '>',
       subject: 'New Application',
-      text: 'This is a test of the new application email system!' 
+      text: 'This is a test of the new application email system!'
     }
   },
 
@@ -26,7 +26,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' + userEmail + '>',
       subject: 'Closed Application',
-      text: 'This is a test of the closed application email system!' 
+      text: 'This is a test of the closed application email system!'
     }
   },
   weeklyReminder: function(username ,userEmail, numberOfApps) {
@@ -34,7 +34,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' applications still open!' 
+      text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' applications still open!'
     }
   },
   deletedApp: function(username, userEmail, appInfo) {
@@ -42,7 +42,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the deleted App email system! You DELETED Application '+ appInfo._id +' for '+ appInfo.role +' at '+ appInfo.companyName +'!' 
+      text: 'This is a test of the deleted App email system! You DELETED Application '+ appInfo._id +' for '+ appInfo.role +' at '+ appInfo.companyName +'!'
     }
   }
 };

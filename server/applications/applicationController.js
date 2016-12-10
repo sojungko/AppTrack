@@ -22,9 +22,7 @@ module.exports = {
     form.userId = userInfo._id;
     createApplication(form)
       .then((newApplication) => {
-        if (newApplication) {
-          res.send(newApplication);
-        }
+        res.send(newApplication);
       })
       .fail((err) => {
         console.log("ERROR in creating position, server/positions/positionController : ", err);
