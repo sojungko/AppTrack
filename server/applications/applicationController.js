@@ -22,7 +22,6 @@ module.exports = {
     form.userId = userInfo._id;
     createApplication(form)
       .then((newApplication) => {
-        console.log("APPLICATION AFTER CREATE : ", newApplication);
         if (newApplication) {
           res.send(newApplication);
         }
