@@ -3,7 +3,7 @@
     <h1><span class="fa fa-sign-in"></span>Signup</h1>
     <form method="post">
       <div class="form-group">
-        <label>Email</label>
+        <label>Username</label>
         <input
           type="text"
           class="form-control"
@@ -20,6 +20,15 @@
           ng-model="user.password"
         >
       </div>  <!-- closing password div line 14 -->
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          ng-model="user.email"
+        >
+      </div>  <!-- closing email div line 23 -->
       <button type="submit" class="btn btn-warning btn-lg" ng-click='signup()'>Signup</button>
     </form>  <!-- closing Post form line 4 -->
     <hr>

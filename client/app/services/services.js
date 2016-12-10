@@ -47,10 +47,10 @@ angular.module('at.services', [])
   })
     .then((resp) => resp.data);
 
-  const signup = ({ username, password }) => $http({
+  const signup = ({ username, password, email }) => $http({
     method: 'POST',
     url: '/api/users/signup',
-    data: { username, password },
+    data: { username, password, email },
   })
     .then((resp) => resp.data);
 

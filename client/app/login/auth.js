@@ -22,7 +22,6 @@ angular.module('at.auth', [])
     console.log('SCOPE.USER : ', $scope.user);
     Auth.signup($scope.user)
       .then((token) => {
-        var token = JSON.parse(token);
         $window.localStorage.setItem('app-trak', token);
         $location.path('/');
       })

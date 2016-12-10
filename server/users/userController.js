@@ -11,8 +11,8 @@ module.exports = {
 					bcrypt.hash(password, null, null, (err, hash) => {
 						var newUser = new userModel({
 							username: username,
-							password: hash
-							// email: email
+							password: hash,
+							email: email
 						});
 						newUser.save(function(err, newUser) {
 							if (err) {
