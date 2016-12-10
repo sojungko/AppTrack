@@ -15,15 +15,9 @@ var templates = {
   newApp: function(user ,appInfo) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
-<<<<<<< HEAD
-      to: username + ' <' + userEmail + '>',
-      subject: 'New Application',
-      text: 'This is a test of the new application email system!'
-=======
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
       text: 'This is a test of the new application email system! You created a new application(id: '+ appInfo._id + ') for ' + appInfo.role +' at '+ appInfo.companyName +'!'
->>>>>>> newAppEmail
     }
   },
 
@@ -31,13 +25,8 @@ var templates = {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' + userEmail + '>',
-<<<<<<< HEAD
-      subject: 'Closed Application',
-      text: 'This is a test of the closed application email system!'
-=======
       subject: 'Application Closed',
       text: 'This is a test of the closed application email system!' 
->>>>>>> newAppEmail
     }
   },
   weeklyReminder: function(username ,userEmail, numberOfApps) {
