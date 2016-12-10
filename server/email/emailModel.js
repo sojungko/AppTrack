@@ -56,7 +56,6 @@ var testMailOptions = {
 
 var email = {
   send: function(user, userApps) {
-    console.log('SEND FUNC USER: ', user)
     var options = templates.weeklyReminder(user.username, user.email, userApps.length);
     transporter.sendMail(options, function(error, info) {
       if(error) {
@@ -80,12 +79,9 @@ var email = {
     })
   },
   deletedSend: function(req, res) {
-    console.log("DELETED REQ: ", req.body.data);
     var app = req.body.data;
     var user;
-    console.log('DELETED APP USER ID: ', req.body.data.userId)
     Users.find({_id:req.body.data.userId}, function(err, result) {
-      console.log('Result: ', result)
       if(err) {console.log("ERROR: ", err)}
       user = result[0];
 
@@ -93,11 +89,8 @@ var email = {
       transporter.sendMail(options, function(err, info) {
       if(err) { return console.log('ERROR: ', err); }
       console.log('NEW APP Message Sent: ', info.response);
-    })
-
+      })
     });
-    
-    
   }
 };
 module.exports = email;

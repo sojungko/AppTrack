@@ -8,11 +8,9 @@ var weeklyReminderSender = function() {
   setInterval(function(){
     Users.find({username:reg}, function(err, data) {
       var users = data;
-      console.log('USERS !!!!!!!: ', users)
       for(var i = 0; i < users.length; i++) {
         user = users[i]
         Apps.find({userId:user.id}, function(err, apps) {
-          console.log('APPLICATIONS: ', user)
           var userApps = apps;
           if(userApps.length > 0) {
             emails.send(user, userApps);
