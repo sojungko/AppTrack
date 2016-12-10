@@ -20,15 +20,23 @@ angular.module('at.allApps', [])
   ];
 
 
-  $scope.getJobData = () => {                                     // This works! //
+  $scope.getJobData = () => {
     Application.getData()
       .then((forms) => {
         $scope.results = forms.reverse();
       });
   };
 
-  $scope.pushToStages = ($index) => {                            // This works! //
+  $scope.pushToStages = ($index) => {
     Application.putStageData($scope.results[$index]._id, $scope.stageattrs)
+      .then(() => {
+        $scope.stageattrs = {};
+        $scope.getJobData();
+      });
+  };
+
+  $scope.removeStage = ($index) => {
+    Application.removeStage($scope.results[$index]._id)
       .then(() => {
         $scope.stageattrs = {};
         $scope.getJobData();
