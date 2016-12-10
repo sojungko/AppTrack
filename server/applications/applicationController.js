@@ -1,7 +1,6 @@
 const Q = require('q');
 const applicationModel = require('./applicationModel.js');
 const jwt = require('jwt-simple');
-// this file is not used -- im not sure what that means??
 
 const findApplication = Q.nbind(applicationModel.findOne, applicationModel);
 const createApplication = Q.nbind(applicationModel.create, applicationModel);
@@ -23,6 +22,7 @@ module.exports = {
     form.userId = userInfo._id;
     createApplication(form)
       .then((newApplication) => {
+        console.log("APPLICATION AFTER CREATE : ", newApplication);
         if (newApplication) {
           res.send(newApplication);
         }
