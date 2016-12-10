@@ -33,7 +33,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' still open!' 
+      text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +'applications still open!' 
     }
   }
 };
