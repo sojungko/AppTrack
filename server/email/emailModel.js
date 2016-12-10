@@ -9,7 +9,36 @@ var transporter = nodemailer.createTransport({
     pass: emailConfig.email_pass
   }
 });
-var mailOptions = {
+
+var templates = {
+  newApp: function(username ,userEmail, applicationName) {
+    return {
+      from: '"AppTrak" <' + emailConfig.email_user + '>',
+      to: username + ' <' + userEmail + '>',
+      subject: 'New Application',
+      text: 'This is a test of the new application email system!' 
+    }
+  },
+
+  closedApp: function(username ,userEmail, applicationName) {
+    return {
+      from: '"AppTrak" <' + emailConfig.email_user + '>',
+      to: username + ' <' + userEmail + '>',
+      subject: 'Closed Application',
+      text: 'This is a test of the closed application email system!' 
+    }
+  },
+  weeklyReminder: function(username ,userEmail, numberOfApps) {
+    return {
+      from: '"AppTrak" <' + emailConfig.email_user + '>',
+      to: username + ' <' + userEmail + '>',
+      subject: 'Weekly App Reminder',
+      text: 'This is a test of the weekly reminder email system!' 
+    }
+  }
+};
+
+var testMailOptions = {
   from: '"AppTrak" <' + emailConfig.email_user + '>',
   to: '"AppTrak" <' + emailConfig.email_user + '>',
   subject: 'Test',
@@ -18,12 +47,27 @@ var mailOptions = {
 
 var email = {
   send: function(req, res) {
-    transporter.sendMail(mailOptions, function(error, info) {
+    var options = templates.weeklyReminder(req.body.username, req.body.email, req.body.data);
+    transporter.sendMail(options, function(error, info) {
       if(error) {
         return console.log('ERROR: ', error);
       }
-      console.log('Message Sent: ', info.response);
+      console.log('Weekly Reminder Message Sent to ' + req.body.username + ': ', info.response);
     })
-  }
+  },
+  newSend: function(req, res) {
+    var options = templates.newApp('appTrak', emailConfig.email_user, req.req.jobDescription, req.companyName);
+    transporter.sendMail(options, function(err, info) {
+      if(err) { return console.log('ERROR: ', err); }
+      console.log('NEW APP Message Sent: ', info.response);
+    })
+  },
+  closedSend: function(req, res) {
+    var options = templates.closedApp(req.username, req.email, req.jobDescription, req.companyName);
+    transporter.sendMail(options, function(err, info) {
+      if(err) { return console.log('ERROR: ', err); }
+      console.log('NEW APP Message Sent: ', info.response);
+    })
+  },
 };
 module.exports = email;
