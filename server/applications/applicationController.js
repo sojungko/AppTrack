@@ -22,7 +22,6 @@ module.exports = {
     form.userId = userInfo._id;
     createApplication(form)
       .then((newApplication) => {
-        console.log("APPLICATION AFTER CREATE : ", newApplication);
         if (newApplication) {
           res.send(newApplication);
         }
@@ -47,6 +46,18 @@ module.exports = {
     });
   },
 
+  removeStage(req, res) {
+  	applicationModel.findByIdAndUpdate(req.params.id, {
+	    $pop: {
+	      "stages": 1
+      }
+    },
+    function(err, stage) {
+      res.send(stage)
+    });
+
+  },
+
 	editStage(req, res) {
     delete req.body.edit.editorEnabled;
 	  applicationModel.findByIdAndUpdate(req.params.id, req.body.edit, function(err, stage) {
@@ -56,7 +67,6 @@ module.exports = {
 
   deleteApp(req, res) {
 	  applicationModel.findByIdAndRemove(req.params.id, function(err, removed) {
-      console.log('AFTER REMOVED : ', removed);
 	    res.send(removed);
 	  });
   }
