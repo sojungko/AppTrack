@@ -26,13 +26,6 @@ angular.module('at.allApps', [])
       });
   };
 
-  $scope.getSingleJob = () => {
-    Application.getJob($scope.role)
-      .then((job) => {
-        $scope.job = job;
-      });
-  };
-
   $scope.pushToStages = ($index) => {                            // This works! //
     Application.putStageData($scope.results[$index]._id, $scope.stageattrs)
       .then(() => {
