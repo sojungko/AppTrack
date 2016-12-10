@@ -52,6 +52,13 @@ module.exports = {
 	  applicationModel.findByIdAndUpdate(req.params.id, req.body.edit, function(err, stage) {
 	    res.send(stage)
 	  });
+  },
+
+  deleteApp(req, res) {
+	  applicationModel.findByIdAndRemove(req.params.id, function(err, removed) {
+      console.log('AFTER REMOVED : ', removed);
+	    res.send(removed);
+	  });
   }
 
 };
