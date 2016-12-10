@@ -79,7 +79,12 @@ var email = {
     })
   },
   deletedSend: function(req, res) {
-
+    console.log("DELETED REQ: ", req);
+    // var options = templates.deletedApp(req.username, req.email, req.jobDescription, req.companyName);
+    // transporter.sendMail(options, function(err, info) {
+    //   if(err) { return console.log('ERROR: ', err); }
+    //   console.log('NEW APP Message Sent: ', info.response);
+    // })
   }
 };
 module.exports = email;
