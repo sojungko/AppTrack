@@ -27,34 +27,4 @@ var weeklyReminderSender = function() {
     });
   }, 1000 * 5 /* * 60 * 24 */)
 };
-// var allApps = Apps.find({});
-//   console.log('WEEKLY REMINDER !!')
-//   console.log('allUsers helpers.js');
-//   console.log('allApps helpers.js', allApps);
-//   setInterval(function() {
-//     console.log('allUsers helpers.js', allUsers);
-//     console.log('allApps helpers.js', allApps);
-//     var day = new Date();
-//     day = day.getDay(); // return number 0-6 where 0 is sunday
-//     if(day === 1) {
-//       for(var i = 0; i < allUsers.length; i++) {
-//         var userApps = [];
-//         allApps.forEach(function(app) {
-//           if(app.userId === allUsers[i].id) {
-//             userApps.push(app);
-//           }
-//         });
-
-//         /*
-//           $http({
-//             method: 'POST',
-//             url: /api/reminder,
-//             data: userApps
-//           });
-//         */
-//       }
-//     }
-//   }, 1000 * 60);
-// };
-
 module.exports = weeklyReminderSender;

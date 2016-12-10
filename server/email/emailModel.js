@@ -35,6 +35,14 @@ var templates = {
       subject: 'Weekly App Reminder',
       text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' applications still open!' 
     }
+  },
+  deletedApp: function(username, userEmail, applicationInfo) {
+    return {
+      from: '"AppTrak" <' + emailConfig.email_user + '>',
+      to: username + ' <' +  emailConfig.email_user + '>',
+      subject: 'Weekly App Reminder',
+      text: 'This is a test of the deleted App email system! You have ' + numberOfApps +' applications still open!' 
+    }
   }
 };
 
@@ -70,5 +78,8 @@ var email = {
       console.log('NEW APP Message Sent: ', info.response);
     })
   },
+  deletedSend: function(req, res) {
+
+  }
 };
 module.exports = email;
