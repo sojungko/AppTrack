@@ -28,6 +28,7 @@ angular.module('at.allApps', [])
   };
 
   $scope.pushToStages = ($index) => {
+    console.log("Stage attributes: ", $scope.stageattrs)
     Application.putStageData($scope.results[$index]._id, $scope.stageattrs)
       .then(() => {
         $scope.stageattrs = {};

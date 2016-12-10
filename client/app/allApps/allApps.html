@@ -12,6 +12,7 @@
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
     <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
       <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
+      <div><button class='btn btn-danger' ng-click='removeStage($index)'>Remove Stage</button></div>
       <div id="list-item">
 
         <!-- 1) Open Position Card, has 5 fields -->
@@ -72,21 +73,22 @@
         <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
           <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
           <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
-          <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
+          <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate.slice(0,10)}}</div>
           <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
-          <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
+          <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp.slice(0,10)}}</div>
           <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
-          <div><button class='btn btn-danger' ng-click='removeStage($index)'>Remove Stage</button></div>
         </div>
 
         <!-- Displays Add Stage Card -->
         <div class="add-stage">
           <div id="card-title"><strong>Add Stage</strong><br></div>
           <br>
-          <select>
-            <option selected disabled>Select a Stage...</option>
-            <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
-          </select>
+          <div>
+            <label>Select Stage</label>
+            <select ng-model='stageattrs.interviewType'>
+              <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
+            </select>
+          </div>
           <div>
             <label>Date Completed</label>
             <input id="field" class="mdl-textfield__input" type="date" ng-model="stageattrs.interviewCompletedDate" required>
