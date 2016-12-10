@@ -6,7 +6,7 @@
 
         <!--  ADD APP VIEW Title -->
         <h1>New Application</h1>
-        <form method='post'>
+        <form name='addNewApp' method='post'>
         <!-- First Column -->
           <div>
             <label>Application Start Date <img height='10px' width='10px' src='../Assets/required.png' /></label>
@@ -39,11 +39,9 @@
             <label>Contact Name <img height='10px' width='10px' src='../Assets/required.png' /></label>
             <input class='form-control' id="field" class="mdl-textfield__input" type="text" ng-model="data.contactName">
           </div>
-
-        <!-- Second Column -->
           <div>
             <label>Contact Phone Number <img height='10px' width='10px' src='../Assets/required.png' /></label>
-            <input class='form-control' id="field"  class="mdl-textfield__input" type="tel" ng-model="data.contactPhone">
+            <input class='form-control' id="field"  class="mdl-textfield__input" type="number" ng-model="data.contactPhone">
           </div>
           <div>
             <label>Contact Email Address <img height='10px' width='10px' src='../Assets/required.png' /></label>
@@ -61,7 +59,7 @@
           <br><br>
 
           <!-- Add Button -->
-          <button class='btn btn-warning' ng-click='submitForm()' id="addButton">Add</button>
+          <button class='btn btn-warning' ng-click='addNewApp.$valid && submitForm()' id="addButton">Add</button>
         </form>
       </div> <!-- Closing outreach div -->
     </form> <!-- Closing form -->
