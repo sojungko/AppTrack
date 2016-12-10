@@ -1,5 +1,6 @@
 var emailConfig = require('./emailConfig');
 var nodemailer = require('nodemailer');
+var Users = require('../users/userModel.js');
 
 var transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -36,12 +37,12 @@ var templates = {
       text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' applications still open!' 
     }
   },
-  deletedApp: function(username, userEmail, applicationInfo) {
+  deletedApp: function(username, userEmail, appInfo) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the deleted App email system!' 
+      text: 'This is a test of the deleted App email system! You DELETED Application '+ appInfo._id +' for '+ appInfo.role +' at '+ appInfo.companyName +'!' 
     }
   }
 };
@@ -55,7 +56,6 @@ var testMailOptions = {
 
 var email = {
   send: function(user, userApps) {
-    console.log('SEND FUNC USER: ', user)
     var options = templates.weeklyReminder(user.username, user.email, userApps.length);
     transporter.sendMail(options, function(error, info) {
       if(error) {
@@ -65,7 +65,7 @@ var email = {
     })
   },
   newSend: function(req, res) {
-    var options = templates.newApp('appTrak', emailConfig.email_user, req.req.jobDescription, req.companyName);
+    var options = templates.newApp('appTrak', emailConfig.email_user, req.body.jobDescription, req.body.companyName);
     transporter.sendMail(options, function(err, info) {
       if(err) { return console.log('ERROR: ', err); }
       console.log('NEW APP Message Sent: ', info.response);
@@ -79,12 +79,18 @@ var email = {
     })
   },
   deletedSend: function(req, res) {
-    console.log("DELETED REQ: ", req);
-    // var options = templates.deletedApp(req.username, req.email, req.jobDescription, req.companyName);
-    // transporter.sendMail(options, function(err, info) {
-    //   if(err) { return console.log('ERROR: ', err); }
-    //   console.log('NEW APP Message Sent: ', info.response);
-    // })
+    var app = req.body.data;
+    var user;
+    Users.find({_id:req.body.data.userId}, function(err, result) {
+      if(err) {console.log("ERROR: ", err)}
+      user = result[0];
+
+      var options = templates.deletedApp(user.username, user.email, app);
+      transporter.sendMail(options, function(err, info) {
+      if(err) { return console.log('ERROR: ', err); }
+      console.log('NEW APP Message Sent: ', info.response);
+      })
+    });
   }
 };
 module.exports = email;
