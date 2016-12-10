@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="at">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link href="./styles/style.css" rel="stylesheet" type="text/css">
     <title>HoHTrak</title>
     <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- MATERIAL IO SCRIPTS BELOW -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -19,23 +21,53 @@
 
   <!-- Definining Angular app -->
   <body>
+
+    <!-- GLOBAL NAV BAR FIXED TOP -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+
+      <!-- CONTAINER for NAV BAR -->
+      <div class="container">
+
+        <!-- NAV BAR TITLE -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">HoHTrak</a>
+        </div>
+
+        <!-- NAV BAR -->
+        <div id="navbar" class="navbar-collapse collapse">
+
+          <!-- NAV BAR LEFT -->
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+          </ul>
+
+          <!-- NAV BAR RIGHT -->
+          <div ng-controller="AuthController">
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="/">All Apps <span class="sr-only">(current)</span></a></li>
+              <li><a href="/#!/addApps">Add App</a></li>
+              <li><a href="/#!/completedApps">Completed App</a></li>
+              <li><a href="/#!/login" class="mdl-navigation__link" ng-click="signout()">Log Out</a></li>
+            </ul>
+
+          </div> <!-- Closing AuthController -->
+        </div><!--/.nav-collapse -->
+      </div> <!-- Closing NAV BAR container -->
+    </nav> <!-- CLOSING GLOBAL NAV BAR FIXED TOP -->
+
+
+    <!--  CONTAINER for NG-VIEW components -->
     <div class="container-fluid">
 
       <!-- TOP ROW: Title, Search.  Always visible -->
       <div class="mdl-layout__header-row">
-
-        <!-- Title -->
-        <h1 id="title"><a href="/">HoHTrak</a></h1>
-
-        <div class="mdl-layout-spacer"></div>
-
-        <!-- Search Icon -->
-        <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
-          mdl-textfield--floating-label mdl-textfield--align-right">
-          <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
-            <i class="material-icons">search</i>
-          </label>
-        </div>
 
       </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
 
@@ -48,29 +80,13 @@
 
             <!-- Add Aps/All Apps Button -->
             <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
-            <div ng-controller="AuthController">
-              <button class="btn btn-warning">
-                <a href="/" class="mdl-navigation__link" >All Apps</a>
-              </button>
-              <button class="btn btn-warning">
-                <a href="/#!/addApps" class="mdl-navigation__link">Add App</a>
-              </button>
-              <button class="btn btn-warning">
-                <a href="/#!/completedApps" class="mdl-navigation__link">Completed App</a>
-              </button>
-              <button class="btn btn-warning">
-
-                <!-- TODO need to add the check for header token to show logout button!!!!! -->
-                <a href="/#!/login" class="mdl-navigation__link" ng-click="signout()">Logout</a>
-              </button>
-            </div>
 
         </nav> <!-- Closing Navigation -->
       </div> <!-- Closing BOTTOM ROW -->
 
       <div class="rows" ng-view></div>
 
-    </div>
+    </div> <!-- Closing CONTAINER for NG-VIEW components -->
     <br /><br />
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
