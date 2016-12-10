@@ -16,7 +16,7 @@ var templates = {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' + userEmail + '>',
-      subject: 'New Application',
+      subject: 'New Application Created',
       text: 'This is a test of the new application email system!' 
     }
   },
@@ -25,7 +25,7 @@ var templates = {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' + userEmail + '>',
-      subject: 'Closed Application',
+      subject: 'Application Closed',
       text: 'This is a test of the closed application email system!' 
     }
   },
@@ -41,7 +41,7 @@ var templates = {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
-      subject: 'Weekly App Reminder',
+      subject: 'Application Deleted',
       text: 'This is a test of the deleted App email system! You DELETED Application '+ appInfo._id +' for '+ appInfo.role +' at '+ appInfo.companyName +'!' 
     }
   }
