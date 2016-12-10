@@ -1,34 +1,30 @@
 <div class="container" ng-controller='AuthController'>
-  <div class="col-sm-6 col-sm-offset-3">
-    <h1><span class="fa fa-sign-in"></span>Signup</h1>
-    <form name="signUpForm" method="post">
-      <div class="form-group">
-        <label>Username <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input
-          type="text"
-          class="form-control"
-          name="email"
-          ng-model="user.username"
-        >
-        <label>Email <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input
-        type="email"
-        class="form-control"
-        name="email"
-        ng-model="user.email"
-        required
-        >
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="page-header"><h2>Signup</h2></div>
+    <form name="signUpForm" ng-submit="signup(signUpForm.$valid)" novalidate>
+
+      <div class="form-group" ng-class="{ 'has-error' : signUpForm.username.$invalid && !signUpForm.username.$pristine }">
+        <label>Username<img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="6" ng-maxlength="20">
+        <p ng-show="signUpForm.username.$error.minlength" class="help-block">Username is too short.</p>
+        <p ng-show="signUpForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : signUpForm.email.$invalid && !signUpForm.email.$pristine }">
+        <label>Email<img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="email" name="email" class="form-control" ng-model="user.email" required>
+        <p ng-show="signUpForm.email.$invalid && !signUpForm.email.$pristine" class="help-block">Enter a valid email.</p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-error' : signUpForm.password.$invalid && !signUpForm.password.$pristine }">
         <label>Password <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input
-          type="password"
-          class="form-control"
-          name="password"
-          ng-model="user.password"
-        >
-      </div>  <!-- closing email div line 23 -->
-      <button type="submit" class="btn btn-warning btn-lg" ng-click='signUpForm.$valid && signup()'>Signup</button>
+        <input type="password" name="password" class="form-control" ng-model="user.password" required>
+        <p ng-show="signUpForm.password.$invalid && !signUpForm.password.$pristine" class="help-block">Not a valid password</p>
+      </div>
+
+      <button type="submit" class="btn btn-primary" ng-disabled="signUpForm.$invalid">Signup</button>
     </form>  <!-- closing Post form line 4 -->
-    <hr>
+    <br>
     <p>Already have an account? <a href="/#!/login">Login</a></p>
   </div>  <!-- closing div line 2 -->
 </div>  <!-- closing div line 1 -->
