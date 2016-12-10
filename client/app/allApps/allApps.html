@@ -11,7 +11,7 @@
     </div>
 
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
-    <ul ng-repeat='result in results' ng-model='results'>
+    <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
 
       <div id="list-item">
 
