@@ -43,6 +43,12 @@ angular.module('at.services', [])
   })
     .then((resp) => resp.data);
 
+  const removeStage = (id) => $http({
+    method: 'POST',
+    url: `/api/remove/${id}`
+  })
+    .then((resp) => resp.data);
+
   const putEditData = (id, edit) => $http({
     method: 'POST',
     url: `/api/edit/${id}`,
@@ -62,7 +68,7 @@ angular.module('at.services', [])
       })
     });
 
-  return { postData, getData, getJob, putStageData, putEditData, deleteApp };
+  return { postData, getData, getJob, putStageData, removeStage, putEditData, deleteApp };
 })
 
 .factory('Auth', ($http, $location, $window) => {
