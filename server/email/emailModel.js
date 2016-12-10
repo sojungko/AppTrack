@@ -12,12 +12,12 @@ var transporter = nodemailer.createTransport({
 });
 
 var templates = {
-  newApp: function(username ,userEmail, applicationName) {
+  newApp: function(user ,appInfo) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
-      to: username + ' <' + userEmail + '>',
+      to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
-      text: 'This is a test of the new application email system!' 
+      text: 'This is a test of the new application email system! You created a new application(id: '+ appInfo._id + ') for ' + appInfo.role +' at '+ appInfo.companyName +'!'
     }
   },
 
@@ -65,17 +65,23 @@ var email = {
     })
   },
   newSend: function(req, res) {
-    var options = templates.newApp('appTrak', emailConfig.email_user, req.body.jobDescription, req.body.companyName);
-    transporter.sendMail(options, function(err, info) {
-      if(err) { return console.log('ERROR: ', err); }
-      console.log('NEW APP Message Sent: ', info.response);
+    console.log('NEW SEND REQ: ', req.body);
+    var user;
+    Users.find({_id:req.body.userId}, function(err, result) {
+      var user = result[0];
+      var options = templates.newApp(user, req.body);
+      transporter.sendMail(options, function(err, info) {
+        if(err) { return console.log('ERROR: ', err); }
+        console.log('NEW APP Message Sent: ', info.response);
+      }) 
     })
+    
   },
   closedSend: function(req, res) {
     var options = templates.closedApp(req.username, req.email, req.jobDescription, req.companyName);
     transporter.sendMail(options, function(err, info) {
       if(err) { return console.log('ERROR: ', err); }
-      console.log('NEW APP Message Sent: ', info.response);
+      console.log('CLOSED APP Message Sent: ', info.response);
     })
   },
   deletedSend: function(req, res) {
@@ -88,7 +94,7 @@ var email = {
       var options = templates.deletedApp(user.username, user.email, app);
       transporter.sendMail(options, function(err, info) {
       if(err) { return console.log('ERROR: ', err); }
-      console.log('NEW APP Message Sent: ', info.response);
+      console.log('DELETED APP Message Sent: ', info.response);
       })
     });
   }
