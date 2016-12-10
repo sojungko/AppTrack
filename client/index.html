@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">HoHTrak</a>
+          <a class="navbar-brand" href="/">HoHTrak</a>
         </div>
 
         <!-- NAV BAR -->
@@ -44,20 +44,18 @@
 
           <!-- NAV BAR LEFT -->
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/">All Apps <span class="sr-only">(current)</span></a></li>
+            <li><a href="/#!/addApps">Add App</a></li>
+            <li><a href="/#!/completedApps">Completed App</a></li>
           </ul>
 
           <!-- NAV BAR RIGHT -->
           <div ng-controller="AuthController">
-
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="/">All Apps <span class="sr-only">(current)</span></a></li>
-              <li><a href="/#!/addApps">Add App</a></li>
-              <li><a href="/#!/completedApps">Completed App</a></li>
               <li><a href="/#!/login" class="mdl-navigation__link" ng-click="signout()">Log Out</a></li>
             </ul>
-
           </div> <!-- Closing AuthController -->
+
         </div><!--/.nav-collapse -->
       </div> <!-- Closing NAV BAR container -->
     </nav> <!-- CLOSING GLOBAL NAV BAR FIXED TOP -->
@@ -65,28 +63,12 @@
 
     <!--  CONTAINER for NG-VIEW components -->
     <div class="container-fluid">
-
-      <!-- TOP ROW: Title, Search.  Always visible -->
-      <div class="mdl-layout__header-row">
-
-      </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
-
-      <!-- BOTTOM ROW, not visible on scroll -->
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer"></div>
-
-        <!-- Navigation -->
-        <nav class="mdl-navigation">
-
-            <!-- Add Aps/All Apps Button -->
-            <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
-
-        </nav> <!-- Closing Navigation -->
-      </div> <!-- Closing BOTTOM ROW -->
-
+      <br />
+      <br />
       <div class="rows" ng-view></div>
 
     </div> <!-- Closing CONTAINER for NG-VIEW components -->
+
     <br /><br />
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
