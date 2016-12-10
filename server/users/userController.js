@@ -21,12 +21,13 @@ module.exports = {
 								res.status(500).send(err);
 							}
 							var token = jwt.encode(newUser, 'apptrak')
+							console.log('NEW USER TOKEN : ', token)
 							res.send(newUser);
 						});
 					})
 	      } else {
 	        console.log('Account already exists');
-	        res.send(401);
+	        res.sendStatus(401);
 	      }
 	    });
 	},
@@ -37,16 +38,20 @@ module.exports = {
 
 	  userModel.findOne({ username: username })
 	    .exec(function(err, user) {
-				var user = user;
 	      if (!user) {
-	        res.send(401);
+					console.log('USER NOT FOUND');
+	        res.sendStatus(401);
 	      } else {
-	        userModel.comparePassword(password, user.password, function(err, match) {
-	          if (match) {
-	            var token = jwt.encode(user, 'apptrak');
+	        bcrypt.compare(password, user.password, function(err, results) {
+						console.log('INPUT PW : ', password);
+						console.log('PASSWORD : ', user.password);
+						console.log('ERROR : ', err);
+						console.log('RESULTS : ', results);
+	          if (results) {
+							var token = jwt.encode(user, 'apptrak');
 							res.send(token);
 	          } else {
-	            res.send(401);
+							res.sendStatus(401);
 	          }
 	        });
 	      }
