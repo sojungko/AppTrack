@@ -27,6 +27,7 @@ router.post('/api/closedAppEmail', email.closedSend);
 
 router.post('/api/reminder', email.send);
 
+router.post('/api/deleteAppEmail', email.deletedSend);
 
 
 module.exports = router;
