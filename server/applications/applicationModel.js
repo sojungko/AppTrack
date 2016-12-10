@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 // This is used only with the endpoint '/form' in the server file.
 
 const ApplicationSchema = new mongoose.Schema({
-	userId: Number,
+	userId: String,
 	startDate: String,
 	companyName: String,
 	role: String,

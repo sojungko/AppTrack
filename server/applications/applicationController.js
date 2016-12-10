@@ -1,5 +1,6 @@
 const Q = require('q');
 const applicationModel = require('./applicationModel.js');
+const jwt = require('jwt-simple');
 // this file is not used -- im not sure what that means??
 
 const findApplication = Q.nbind(applicationModel.findOne, applicationModel);
@@ -18,10 +19,11 @@ module.exports = {
   },
 
   createApplication({ body: { form } }, res) {
+    var userInfo = jwt.decode(form.userId, 'apptrak');
+    form.userId = userInfo._id;
     createApplication(form)
       .then((newApplication) => {
         if (newApplication) {
-          console.log("CREATE position request: ", newApplication);
           res.send(newApplication);
         }
       })
