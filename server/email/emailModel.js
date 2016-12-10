@@ -31,9 +31,9 @@ var templates = {
   weeklyReminder: function(username ,userEmail, numberOfApps) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
-      to: username + ' <' + userEmail + '>',
+      to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the weekly reminder email system!' 
+      text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' applications still open!' 
     }
   }
 };
@@ -46,13 +46,14 @@ var testMailOptions = {
 };
 
 var email = {
-  send: function(req, res) {
-    var options = templates.weeklyReminder(req.body.username, req.body.email, req.body.data);
+  send: function(user, userApps) {
+    console.log('SEND FUNC USER: ', user)
+    var options = templates.weeklyReminder(user.username, user.email, userApps.length);
     transporter.sendMail(options, function(error, info) {
       if(error) {
         return console.log('ERROR: ', error);
       }
-      console.log('Weekly Reminder Message Sent to ' + req.body.username + ': ', info.response);
+      console.log('Weekly Reminder Message Sent to ' + user.username + ': ', info.response);
     })
   },
   newSend: function(req, res) {
