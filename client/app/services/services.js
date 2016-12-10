@@ -45,17 +45,14 @@ angular.module('at.services', [])
     url: '/api/users/signin',
     data: { username, password },
   })
-    .then(({ data: { token } }) => token);
+    .then((resp) => resp.data);
 
   const signup = ({ username, password }) => $http({
     method: 'POST',
     url: '/api/users/signup',
     data: { username, password },
   })
-    .then((data) => {
-      console.log('DATA : ', data);
-      return data.token
-    });
+    .then((resp) => resp.data);
 
   const isAuth = () => !!$window.localStorage.getItem('app-trak');
 
