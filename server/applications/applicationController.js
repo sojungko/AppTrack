@@ -38,8 +38,6 @@ module.exports = {
     if(req.body.interviewType === 'Application Complete'){
       isOpen = false;
     }
-    console.log("STAGE BODY : ", req.body)
-
   	applicationModel.findByIdAndUpdate(req.params.id, {
 	    $push: {
 	      "stages": req.body
@@ -50,7 +48,6 @@ module.exports = {
     },
     {new: true},
     function(err, addedStage) {
-      console.log("ADD STAGE AFTER: ", addedStage);
       res.send(addedStage)
     });
   },

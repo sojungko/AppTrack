@@ -12,17 +12,17 @@ angular.module('at', [
   .when('/', {
     templateUrl: './app/allApps/allApps.html',
     controller: 'AllAppsController',
-    authenticate: true, //change to true once auth works
+    authenticate: true,
   })
   .when('/addApps', {
     templateUrl: './app/addApps/addApps.html',
     controller: 'AddAppsController',
-    authenticate: true, //change to true once auth works
+    authenticate: true,
   })
   .when('/completedApps', {
     templateUrl: './app/completedApps/completedApps.html',
     controller: 'CompletedAppsController',
-    authenticate: true, //change to true once auth works
+    authenticate: true,
   })
   .when('/login', {
     templateUrl: './app/login/login.html',
@@ -33,10 +33,7 @@ angular.module('at', [
     controller: 'AuthController',
   })
   .otherwise({ redirectTo: '/' });
-  // $locationProvider.html5Mode({
-  //   enabled: true,
-  //   requireBase: false,
-  // });
+
   $httpProvider.interceptors.push('AttachTokens'); // will attach token to the localStorage
 })
 
