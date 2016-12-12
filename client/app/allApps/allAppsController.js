@@ -22,13 +22,15 @@ angular.module('at.allApps', [])
 
   $scope.getJobData = () => {
     Application.getData()
-      .then((forms) => {
-        $scope.results = forms.reverse();
+      .then((applications) => {
+        var filteredApps = applications.filter((app) => {
+          return app.isOpen === true;
+        })
+        $scope.results = filteredApps.reverse();
       });
   };
 
   $scope.pushToStages = ($index) => {
-    console.log("Stage attributes: ", $scope.stageattrs)
     Application.putStageData($scope.results[$index]._id, $scope.stageattrs)
       .then(() => {
         $scope.stageattrs = {};
@@ -67,7 +69,7 @@ angular.module('at.allApps', [])
       .then(() => {
         $scope.getJobData();
       })
-  }
+  };
 
   $scope.getJobData();
 });

@@ -82,11 +82,16 @@
       <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
         <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
         <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
-        <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
+        <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate.slice(0,10)}}</div>
         <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
-        <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
+        <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp.slice(0,10)}}</div>
         <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
       </div>
     </div><!-- Closing row -->
+    <br>
+    <div class='btn-group'>
+      <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
+    </div>
+    <hr>
   </ul> <!-- closing ng-repeat Application -->
 </div> <!-- Closing ALL APPLICATION VIEW-->
