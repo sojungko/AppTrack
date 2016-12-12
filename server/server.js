@@ -31,7 +31,11 @@ app.listen(port, (err) => {
   if (err) {
     console.log('Error occurred : ', err);
   } else {
-   // weeklyReminder(); uncomment to start weekly reminder function
+    var reminded = false;
+    while(!reminded) {
+     // weeklyReminder(); //uncomment to start weekly reminder function
+      reminded = true;
+    }
     console.log('Server is listening to port : ', port);
   }
 });
