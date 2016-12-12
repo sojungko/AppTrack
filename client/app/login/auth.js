@@ -12,7 +12,7 @@ angular.module('at.auth', [])
         $location.path('/');
       })
       .catch((error) => {
-        console.error(error);   //TODO implement error catch with connect-flash when no user/password invalid
+        console.error(error);
       });
   };
 
@@ -25,7 +25,7 @@ angular.module('at.auth', [])
         $location.path('/');
       })
       .catch((error) => {
-        console.error(error);   //TODO implement error catch with connect-flash when user already exists
+        console.error(error);
       });
   };
 
