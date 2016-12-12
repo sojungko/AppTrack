@@ -9,15 +9,20 @@ var weeklyReminderSender = function() {
     Users.find({username:reg}, function(err, data) {
       var users = data;
       for(var i = 0; i < users.length; i++) {
-        user = users[i]
-        Apps.find({userId:user.id}, function(err, apps) {
+        //user = users[i]
+        //console.log('I !!!!!!!!!!!!!: ', i)
+        (function(index){
+        Apps.find({userId:users[index].id}, function(err, apps) {
           var userApps = apps;
+          console.log('USER!!!!: ', users[index])
           if(userApps.length > 0) {
-            emails.send(user, userApps);
+            console.log('SENDING EMAIL TO USER: ', users[index]);
+            emails.send(users[index], userApps);
           }
         });
+      })(i)
       }
     });
-  }, 1000 * 5 /* * 60 * 24 */)
+  }, 1000 * 30 /* * 60 * 24 */)
 };
 module.exports = weeklyReminderSender;
