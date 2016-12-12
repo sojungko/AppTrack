@@ -22,8 +22,6 @@
 
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
     <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
-      <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
-      <div><button class='btn btn-danger' ng-click='removeStage($index)'>Remove Stage</button></div>
       <div id="list-item">
 
         <!-- 1) Open Position Card, has 5 fields -->
@@ -74,6 +72,8 @@
 
           <!-- Save Button -->
           <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+          <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
+          <div><button class='btn btn-danger' ng-click='removeStage($index)'>Remove Stage</button></div>
 
         </li><!-- Closing Open Position Card -->
 
