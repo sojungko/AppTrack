@@ -39,15 +39,15 @@ module.exports = {
       if (err) {
         console.log('Error uploading file');
       } else {
-        var filename = req.body.file.name;
-        fs.writeFile(path.join(__dirname, '/uploads/', filename), filename, function(err, results) {
-          if(err) {
-            console.log('Error writing file : ', err)
-          } else {
-            res.end();
-            console.log('Cover letter uploaded!')
-          }
-        });
+        // var filename = req.body.file.name;
+        // fs.writeFile(path.join(__dirname, '/uploads/', filename), filename, function(err, results) {
+        //   if(err) {
+        //     console.log('Error writing file : ', err)
+        //   } else {
+        //     res.end();
+        //     console.log('Cover letter uploaded!')
+        //   }
+        // });
       }
     })
   },
