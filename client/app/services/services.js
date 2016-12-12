@@ -41,7 +41,16 @@ angular.module('at.services', [])
     url: `/api/form/${id}`,
     data: stages,
   })
-    .then((resp) => resp.data);
+    .then((stageResponse) => {
+      if(!stageResponse.data.isOpen){
+        $http({
+          method: 'POST',
+          url: '/api/closedAppEmail',
+          data: stageResponse
+        })
+      }
+      return stageResponse;
+    });
 
   const removeStage = (id) => $http({
     method: 'POST',

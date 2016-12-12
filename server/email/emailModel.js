@@ -24,7 +24,7 @@ var templates = {
   closedApp: function(username ,userEmail, applicationName) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
-      to: username + ' <' + userEmail + '>',
+      to: username + ' <' + emailConfig.email_user + '>',
       subject: 'Application Closed',
       text: 'This is a test of the closed application email system!'
     }
@@ -78,7 +78,8 @@ var email = {
 
   },
   closedSend: function(req, res) {
-    var options = templates.closedApp(req.username, req.email, req.jobDescription, req.companyName);
+    console.log("CLOSED SEND REQ: ", req.body);
+    var options = templates.closedApp(req.body.data.username, req.body.data.email);
     transporter.sendMail(options, function(err, info) {
       if(err) { return console.log('ERROR: ', err); }
       console.log('CLOSED APP Message Sent: ', info.response);
