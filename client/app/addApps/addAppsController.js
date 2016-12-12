@@ -6,6 +6,7 @@ angular.module('at.addApps', [])
 
   $scope.submitForm = () => {
     $scope.data.userId = $window.localStorage.getItem('app-trak');
+    $scope.data.isOpen = true;
     Application.postData($scope.data)
       .then((resp) => {
         $location.path('/');
