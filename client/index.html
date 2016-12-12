@@ -52,7 +52,7 @@
           <!-- NAV BAR RIGHT -->
           <div ng-controller="AuthController">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="/#!/login" class="mdl-navigation__link" ng-click="signout()">Log Out</a></li>
+              <li><a href="/#!/login" class="mdl-navigation__link" ng-click="signout()" ng-hide='!isAuth()'>Log Out</a></li>
             </ul>
           </div> <!-- Closing AuthController -->
 
