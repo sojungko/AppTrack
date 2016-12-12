@@ -33,18 +33,6 @@ module.exports = {
       });
   },
 
-//TODO
-  uploadFile(req, res) {
-    console.log('REQUEST BODY : ', req.body);
-    upload(req, res, function(err) {
-      if (err) {
-        console.log('Error uploading file');
-      } else {
-      }
-    });
-
-  },
-
   addStage(req, res) {
     var isOpen = true;
     if(req.body.interviewType === 'Application Complete'){
