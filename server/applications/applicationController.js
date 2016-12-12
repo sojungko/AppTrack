@@ -33,6 +33,7 @@ module.exports = {
       });
   },
 
+<<<<<<< HEAD
 //TODO
   uploadFile(req, res) {
     console.log('REQUEST BODY : ', req.body);
@@ -45,6 +46,8 @@ module.exports = {
 
   },
 
+=======
+>>>>>>> removeupload
   addStage(req, res) {
     var isOpen = true;
     if(req.body.interviewType === 'Application Complete'){
