@@ -15,7 +15,6 @@ angular.module('at.services', [])
     });
 
   const getData = (token) => {
-    console.log("SERVICES TOKEN : ", token);
     return $http({
         method: 'GET',
         url: '/api/form',

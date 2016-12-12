@@ -11,10 +11,8 @@ const findAllApplication = Q.nbind(applicationModel.find, applicationModel);
 module.exports = {
   allPositions(req, res) {
     var decrypted = jwt.decode(req.headers['x-access-token'], 'apptrak');
-    console.log("DECRYPTED ID : ", decrypted._id);
     findAllApplication({userId: decrypted._id})
       .then((positions) => {
-        console.log("USER POSITIONS GET ALL : ", positions);
         res.json(positions);
       })
       .fail((err) => {
