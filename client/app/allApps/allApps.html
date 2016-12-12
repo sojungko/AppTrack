@@ -37,8 +37,8 @@
           <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
         </div>
 
-        <!-- ii) ROLE -->
-        <div id="field" ng-click="enableEditor($index)"><strong>Role:</strong><br>
+        <!-- ii) POSITION -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Position:</strong><br>
           <span ng-hide="edit.editorEnabled">{{result.role}}</span>
         </div>
         <div ng-show="edit.editorEnabled">
@@ -51,6 +51,14 @@
         </div>
         <div ng-show="edit.editorEnabled">
          <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        </div>
+
+        <!-- iii.5) COVER LETTER  -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Cover Letter:</strong><br>
+         <span ng-hide="edit.editorEnabled">{{result.coverLetter}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+         <input ng-model="edit.coverLetter" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- iv) APPLIED THROUGH -->
