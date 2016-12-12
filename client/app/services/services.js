@@ -104,15 +104,3 @@ angular.module('at.services', [])
 
   return { signin, signup, isAuth, signout };
 })
-
-//TODO Not being used for Legacy
-.factory('Upload', ($http) => {
-  const postFile = (file) => $http({
-    method: 'POST',
-    url: '/api/form/uploads',
-    data: file
-  })
-    .then((resp) => resp.data);
-
-  return postFile;
-})
