@@ -17,16 +17,16 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b style="font-size: 160%;">You created a new application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><link href="localhost:5000">Click here to view open applications.</link></p>'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h1><br /><p>Dear '+user.username+',</p><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b><br /><p><link href="localhost:5000">Click here to view open applications.</link></p>'
     }
   },
 
-  closedApp: function(username ,userEmail, applicationName) {
+  closedApp: function(user, appInfo) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
-      to: username + ' <' + emailConfig.email_user + '>',
+      to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'Application Closed',
-      text: 'This is a test of the closed application email system!'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><p>Dear '+user.username+',</p><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><link href="localhost:5000">Click here to view closed applications.</link></p>'
     }
   },
   weeklyReminder: function(username ,userEmail, numberOfApps) {
@@ -34,15 +34,15 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      text: 'This is a test of the weekly reminder email system! You have ' + numberOfApps +' applications still open!'
+      html: '<p>Dear '+user.username+',</p><b style="font-size: 125%;">You have'+numberOfApps+' application\'s open!</b><br /><p><link href="localhost:5000">Click here to view all open applications.</link></p>'
     }
   },
-  deletedApp: function(username, userEmail, appInfo) {
+  deletedApp: function(user, appInfo) {
     return {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
-      to: username + ' <' +  emailConfig.email_user + '>',
+      to: user.username + ' <' +  emailConfig.email_user + '>',
       subject: 'Application Deleted',
-      text: 'This is a test of the deleted App email system! You DELETED Application '+ appInfo._id +' for '+ appInfo.role +' at '+ appInfo.companyName +'!'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><p>Dear '+user.username+',</p><br /><b style="font-size: 125%;">You deleted an application for '+appInfo.role+' at '+appInfo.companyName+'!</b>'
     }
   }
 };
@@ -79,11 +79,17 @@ var email = {
   },
   closedSend: function(req, res) {
     console.log("CLOSED SEND REQ: ", req.body);
-    var options = templates.closedApp(req.body.data.username, req.body.data.email);
-    transporter.sendMail(options, function(err, info) {
-      if(err) { return console.log('ERROR: ', err); }
-      console.log('CLOSED APP Message Sent: ', info.response);
-    })
+    var user;
+    Users.find({_id:req.body.data.userId}, function(err, results) {
+      user = results[0];
+      if(user) {
+        var options = templates.closedApp(user, req.body.data);
+        transporter.sendMail(options, function(err, info) {
+          if(err) { return console.log('ERROR: ', err); }
+          console.log('CLOSED APP Message Sent: ', info.response);
+        });
+      }
+    });
   },
   deletedSend: function(req, res) {
     var app = req.body.data;
@@ -92,10 +98,10 @@ var email = {
       if(err) {console.log("ERROR: ", err)}
       user = result[0];
 
-      var options = templates.deletedApp(user.username, user.email, app);
+      var options = templates.deletedApp(user, app);
       transporter.sendMail(options, function(err, info) {
-      if(err) { return console.log('ERROR: ', err); }
-      console.log('DELETED APP Message Sent: ', info.response);
+        if(err) { return console.log('ERROR: ', err); }
+        console.log('DELETED APP Message Sent: ', info.response);
       })
     });
   }
