@@ -9,7 +9,6 @@ angular.module('at.upload', ['ngFileUpload'])
 
     // upload on file select or drop
     $scope.upload = function (file) {
-      console.log('FILE : ', file);
         Upload.upload({
             url: 'api/form/uploads',
             method: 'POST',
