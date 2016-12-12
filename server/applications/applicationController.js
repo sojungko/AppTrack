@@ -34,11 +34,12 @@ module.exports = {
   },
 
   addStage(req, res) {
-    console.log("STAGE BODY : ", req.body)
     var isOpen = true;
     if(req.body.interviewType === 'Application Complete'){
       isOpen = false;
     }
+    console.log("STAGE BODY : ", req.body)
+
   	applicationModel.findByIdAndUpdate(req.params.id, {
 	    $push: {
 	      "stages": req.body
@@ -47,9 +48,10 @@ module.exports = {
         "isOpen": isOpen
       }
     },
-    function(err, stage) {
-      console.log("ADD STAGE AFTER: ", stage);
-      res.send(stage)
+    {new: true},
+    function(err, addedStage) {
+      console.log("ADD STAGE AFTER: ", addedStage);
+      res.send(addedStage)
     });
   },
 
@@ -59,15 +61,16 @@ module.exports = {
 	      "stages": 1
       }
     },
-    function(err, stage) {
-      res.send(stage)
+    {new: true},
+    function(err, removedStage) {
+      res.send(removedStage)
     });
 
   },
 
 	editStage(req, res) {
     delete req.body.edit.editorEnabled;
-	  applicationModel.findByIdAndUpdate(req.params.id, req.body.edit, function(err, stage) {
+	  applicationModel.findByIdAndUpdate(req.params.id, req.body.edit, {new: true}, function(err, stage) {
 	    res.send(stage)
 	  });
   },
