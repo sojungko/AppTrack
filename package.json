@@ -40,7 +40,6 @@
     "mongodb": "^2.2.12",
     "mongoose": "^4.7.1",
     "multer": "^1.2.0",
-    "ng-file-upload": "^12.2.13",
     "nodemailer": "^2.7.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
