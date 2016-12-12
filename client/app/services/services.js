@@ -13,14 +13,6 @@ angular.module('at.services', [])
         data: postDataResponse
       })
     });
-    //next http request to send form down to nodemailer
-
-    const postFile = (file) => $http({
-      method: 'POST',
-      url: '/api/form/upload',
-      data: { file },
-    })
-      .then((resp) => resp.data);
 
   const getData = () => $http({
       method: 'GET',
