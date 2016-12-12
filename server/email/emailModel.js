@@ -17,7 +17,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h1><br /><p>Dear '+user.username+',</p><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b><br /><p><link href="localhost:5000">Click here to view open applications.</link></p>'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b><br /><p><link href="localhost:5000">Click here to view open applications.</link></p>'
     }
   },
 
@@ -26,7 +26,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'Application Closed',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><p>Dear '+user.username+',</p><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><link href="localhost:5000">Click here to view closed applications.</link></p>'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><link href="localhost:5000">Click here to view closed applications.</link></p>'
     }
   },
   weeklyReminder: function(username ,userEmail, numberOfApps) {
@@ -34,7 +34,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      html: '<p>Dear '+user.username+',</p><b style="font-size: 125%;">You have'+numberOfApps+' application\'s open!</b><br /><p><link href="localhost:5000">Click here to view all open applications.</link></p>'
+      html: '<b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You have'+numberOfApps+' application\'s open!</b><br /><p><link href="localhost:5000">Click here to view all open applications.</link></p>'
     }
   },
   deletedApp: function(user, appInfo) {
@@ -42,17 +42,17 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' +  emailConfig.email_user + '>',
       subject: 'Application Deleted',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><p>Dear '+user.username+',</p><br /><b style="font-size: 125%;">You deleted an application for '+appInfo.role+' at '+appInfo.companyName+'!</b>'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You deleted an application for '+appInfo.role+' at '+appInfo.companyName+'!</b>'
     }
   }
 };
 
-var testMailOptions = {
-  from: '"AppTrak" <' + emailConfig.email_user + '>',
-  to: '"AppTrak" <' + emailConfig.email_user + '>',
-  subject: 'Test',
-  html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">TEST ID</b></h1><br /><b style="color: #6702FF">TESTING</b>'
-};
+// var testMailOptions = {
+//   from: '"AppTrak" <' + emailConfig.email_user + '>',
+//   to: '"AppTrak" <' + emailConfig.email_user + '>',
+//   subject: 'Test',
+//   html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">TEST ID</b></h1><br /><b style="color: #6702FF">TESTING</b>'
+// };
 
 var email = {
   send: function(user, userApps) {
