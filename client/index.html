@@ -23,14 +23,14 @@
   <body>
 
     <!-- GLOBAL NAV BAR FIXED TOP -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
       <!-- CONTAINER for NAV BAR -->
       <div class="container">
 
         <!-- NAV BAR TITLE -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -40,7 +40,7 @@
         </div>
 
         <!-- NAV BAR -->
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse" uib-collapse="navCollapsed">
 
           <!-- NAV BAR LEFT -->
           <ul class="nav navbar-nav">
@@ -72,6 +72,7 @@
     <br /><br />
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
+    <script src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
     <script src="ng-file-upload/dist/ng-file-upload.min.js"></script>
     <script src="app.js"></script>
     <script src="/allApps/allAppsController.js"></script>

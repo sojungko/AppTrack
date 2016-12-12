@@ -4,7 +4,8 @@ angular.module('at', [
   'at.completedApps',
   'at.auth',
   'at.services',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap',
 ])
 
 .config(($routeProvider, $locationProvider, $httpProvider) => {
