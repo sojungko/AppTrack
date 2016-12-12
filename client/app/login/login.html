@@ -1,6 +1,9 @@
 <div class = "auth">
-  <!-- Sign Up Form Input Fields -->
+
+  <!-- Log In Form Input Fields -->
   <form class="form-signin" name="signInForm" ng-submit="signin(signInForm.$valid)" novalidate>
+
+    <!-- Log In Page Title -->
     <h2 class="form-signin-heading">Login</h2>
     <!-- Email: Required field, has to be validated -->
     <div ng-class="{ 'has-error' : signInForm.username.$invalid && !signInForm.username.$pristine }">
@@ -20,11 +23,11 @@
 
     <!-- Form validation Error messages -->
     <div>
-      <!-- Username: Required field, has to be validated -->
+      <!-- Invalid Username error message -->
       <p ng-show="signInForm.username.$error.minlength" class="help-block">Username is too short.</p>
       <p ng-show="signInForm.username.$error.maxlength" class="help-block">Username is too long.</p>
 
-      <!-- Password: Required field, has to be validated -->
+      <!-- Invalid Password error message -->
       <p ng-show="signInForm.password.$invalid && !signInForm.password.$pristine" class="help-block">Please Enter a password</p>
       <br />
     </div>
