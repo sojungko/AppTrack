@@ -4,7 +4,7 @@ const jwt = require('jwt-simple');
 const fs = require('fs');
 const path = require('path');
 const multer  = require('multer');
-var upload = multer({ dest: 'uploads/' }).single('coverLetter');
+var upload = multer({ dest: 'uploads/' }).single('file');
 
 const findApplication = Q.nbind(applicationModel.findOne, applicationModel);
 const createApplication = Q.nbind(applicationModel.create, applicationModel);
@@ -33,23 +33,17 @@ module.exports = {
       });
   },
 
+//TODO
   uploadFile(req, res) {
     console.log('REQUEST BODY : ', req.body);
     upload(req, res, function(err) {
       if (err) {
         console.log('Error uploading file');
       } else {
-        var filename = req.body.file.name;
-        fs.writeFile(path.join(__dirname, '/uploads/', filename), filename, function(err, results) {
-          if(err) {
-            console.log('Error writing file : ', err)
-          } else {
-            res.end();
-            console.log('Cover letter uploaded!')
-          }
-        });
+        console.log('Inside uploadFile!');
       }
-    })
+    });
+
   },
 
   addStage(req, res) {

@@ -28,11 +28,15 @@
       </div>
 
       <!-- COVER LETTER: Optional-->
-      <div ng-controller="UploadController">
+      <div ng-controller="UploadController as childCtrl">
           <label>Cover Letter Upload</label>
+
+          <!-- Drag and Drop File Upload for Future Use -->
           <div ngf-drop ngf-select ng-model="file" class="drop-box"
-              ngf-drag-over-class="'dragover'"
-              >Drop file here to upload</div>
+              ngf-drag-over-class="'dragover'" accept="file_extension"
+              >Drop file here to upload </div>
+
+          <input type="text" name="coverLetter" class="form-control" ng-model="data.coverLetter">
       </div>
 
       <!-- JOB DESCRIPTION: Optional-->
