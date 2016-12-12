@@ -22,8 +22,10 @@
 
     <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
     <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
-      <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
-      <div><button class='btn btn-danger' ng-click='removeStage($index)'>Remove Stage</button></div>
+      <div class='btn-group' style='float:right'>
+        <button class='btn btn-warning' ng-click='removeStage($index)'>Remove Stage</button>
+        <button class='btn btn-danger'ng-click='delete($index)'>Delete This Application</button>
+      </div>
       <div id="list-item">
 
         <!-- 1) Open Position Card, has 5 fields -->
@@ -114,10 +116,10 @@
           </div>
           <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
           <br>
-          <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+          <button type="submit" ng-click="pushToStages($index)" class="btn btn-warning">Submit</button>
         </div>
 
       </div> <!-- Closing list-item -->
-      <br>
+      <hr>
     </ul> <!-- closing ng-repeat Application -->
   </div> <!-- Closing ALL APPLICATION VIEW-->
