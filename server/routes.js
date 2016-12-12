@@ -14,22 +14,14 @@ router.post('/api/form/uploads', applicationController.uploadFile);
 
 // get request endpoint for $http get request made in the getData factory function.
 router.get('/api/form', applicationController.allPositions);
-
 router.post('/api/form/:id', applicationController.addStage);
-
 router.post('/api/remove/:id', applicationController.removeStage);
-
 router.post('/api/edit/:id', applicationController.editStage);
-
 router.post('/api/delete/:id', applicationController.deleteApp);
 
 router.post('/api/newAppEmail', email.newSend);
-
 router.post('/api/closedAppEmail', email.closedSend);
-
 router.post('/api/reminder', email.send);
-
 router.post('/api/deleteAppEmail', email.deletedSend);
-
 
 module.exports = router;
