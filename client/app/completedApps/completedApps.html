@@ -1,118 +1,92 @@
 <!-- COMPLETED APPLICATION VIEW using FormController, Display depends on ng-show showDiv -->
-  <div class="col-md-8 col-md-offset-2">
+<div class="col-md-8 col-md-offset-2">
 
-    <!-- COMPLETED APPLICATION VIEW title -->
-    <div class="page-header"><h1>Completed Applications</h1></div>
+  <!-- COMPLETED APPLICATION VIEW title -->
+  <div class="page-header"><h1>Completed Applications</h1></div>
 
-    <!-- Application Search -->
+  <!-- Application Search -->
 
-    <form name='searchCompletedApp' class="form-group">
-      <label for ="searchCompletedApp">Search Completed Applications</label>
-      <div class = "input-group">
+  <form name='searchCompletedApp' class="form-group">
+    <label for ="searchCompletedApp">Search Completed Applications</label>
+    <div class = "input-group">
 
-        <!-- Input Field / Search Bar  -->
-        <input
-          type='text',
-          name='searchCompletedAppsQuery',
-          ng-model='searchText',
-          class="form-control"/>
+      <!-- Input Field / Search Bar  -->
+      <input
+        type='text',
+        name='searchCompletedAppsQuery',
+        ng-model='searchText',
+        class="form-control"/>
 
-      </div> <!-- Closing input-group -->
-    </form> <!-- Closing from group -->
+    </div> <!-- Closing input-group -->
+  </form> <!-- Closing from group -->
 
-    <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
-    <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
+  <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
+  <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
+    <div class="row">
 
-      <div class="row">
-        <!-- 1) Open Position Card, has 5 fields -->
-        <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
-        <li id="card">
-          <div id="card-title"><strong>Open Position</strong><br></div>
+      <!-- 1) Open Position Card, has 5 fields -->
+      <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
+      <li id="card">
+        <div id="card-title"><strong>Open Position</strong><br></div>
 
-          <!-- i) COMPANY -->
-          <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
-            <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
-          </div>
-          <div ng-show="edit.editorEnabled">
-            <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-          </div>
-
-          <!-- ii) ROLE -->
-          <div id="field" ng-click="enableEditor($index)"><strong>Role:</strong><br>
-            <span ng-hide="edit.editorEnabled">{{result.role}}</span>
-          </div>
-          <div ng-show="edit.editorEnabled">
-            <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-          </div>
-
-          <!-- iii) JOB DESCRIPTION -->
-          <div id="field" ng-click="enableEditor($index)"><strong>Job Description:</strong><br>
-           <span ng-hide="edit.editorEnabled">{{result.jobDescription}}</span>
-          </div>
-          <div ng-show="edit.editorEnabled">
-           <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-          </div>
-
-          <!-- iv) APPLIED THROUGH -->
-          <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
-            <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
-          </div>
-          <div ng-show="edit.editorEnabled">
-            <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-          </div>
-
-          <!-- v) CONTACT NAME -->
-          <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
-            <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
-          </div>
-
-          <div ng-show="edit.editorEnabled">
-            <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-          </div>
-
-          <!-- Save Button -->
-          <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
-
-        </li><!-- Closing Open Position Card -->
-
-        <!-- 2) Add Stage Card -->
-        <!-- has STAGE TYPE drop down menu, DATE, Primary Interview, Follow up date, Reply Received -->
-
-        <!-- Displays Stage Data -->
-        <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
-          <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
-          <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
-          <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
-          <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
-          <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
-          <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
+        <!-- i) COMPANY -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
+          <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+          <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
         </div>
 
-        <!-- Displays Add Stage Card -->
-        <div class="add-stage">
-          <div id="card-title"><strong>Add Stage</strong><br></div>
-          <br>
-          <select>
-            <option selected disabled>Select a Stage...</option>
-            <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
-          </select>
-          <div>
-            <label>Date Completed</label>
-            <input id="field" class="mdl-textfield__input" type="date" ng-model="stageattrs.interviewCompletedDate" required>
-          </div>
-          <div>
-            <label>Interviewer</label>
-            <input id="field" class="mdl-textfield__input" type="text" ng-model="stageattrs.interviewerType" required>
-          </div>
-          <div>
-            <label>Date of Last Follow Up</label>
-            <input id="field" class="mdl-textfield__input" type="date" ng-model="stageattrs.dateOfLastFollowUp" required>
-          </div>
-          <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
-          <br>
-          <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-        </div><!-- Closing list-item -->
-      </ul> <!-- closing ng-repeat Application -->
+        <!-- ii) ROLE -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Role:</strong><br>
+          <span ng-hide="edit.editorEnabled">{{result.role}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+          <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        </div>
+
+        <!-- iii) JOB DESCRIPTION -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Job Description:</strong><br>
+         <span ng-hide="edit.editorEnabled">{{result.jobDescription}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+         <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        </div>
+
+        <!-- iv) APPLIED THROUGH -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
+          <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+          <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        </div>
+
+        <!-- v) CONTACT NAME -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
+          <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
+        </div>
+
+        <div ng-show="edit.editorEnabled">
+          <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        </div>
+
+        <!-- Save Button -->
+        <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+
+      </li><!-- Closing Open Position Card -->
+
+      <!-- 2) Add Stage Card -->
+      <!-- has STAGE TYPE drop down menu, DATE, Primary Interview, Follow up date, Reply Received -->
+
+      <!-- Displays Stage Data -->
+      <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
+        <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
+        <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
+        <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
+        <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
+        <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
+        <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
+      </div>
     </div><!-- Closing row -->
-  </div> <!-- Closing ALL APPLICATION VIEW-->
-</div>
+  </ul> <!-- closing ng-repeat Application -->
+</div> <!-- Closing ALL APPLICATION VIEW-->
