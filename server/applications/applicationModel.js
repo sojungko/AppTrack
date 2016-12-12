@@ -9,6 +9,7 @@ const ApplicationSchema = new mongoose.Schema({
 	startDate: Date,
 	companyName: String,
 	role: String,
+	coverLetter: String,
 	jobDescription: String,
 	appliedThrough: String,
 	contactName: String,
@@ -19,11 +20,6 @@ const ApplicationSchema = new mongoose.Schema({
 	dateOfLastContact: Date,
 	replyReceived: Boolean,
 	stages: Array,
-	contractTime: Number,
-	initialComp: Number,
-	negotiated: Boolean,
-	finalComp: Number,
-	acceptReject: Boolean,
 	isOpen: Boolean
 })
 
