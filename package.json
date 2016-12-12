@@ -34,6 +34,7 @@
     "dirname": "^0.1.0",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
+    "gridfs-stream": "^1.1.1",
     "http-server": "^0.9.0",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.2",
