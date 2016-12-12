@@ -21,8 +21,11 @@ angular.module('at.completedApps', [])
 
   $scope.getJobData = () => {                                     // This works! //
     Application.getData()
-      .then((forms) => {
-        $scope.results = forms.reverse();
+      .then((applications) => {
+        var filteredApps = applications.filter((app) => {
+          return app.isOpen === false;
+        })
+        $scope.results = filteredApps.reverse();
       });
   };
 
@@ -57,6 +60,13 @@ angular.module('at.completedApps', [])
         $scope.edit = {};
         $scope.getJobData();
       });
+  };
+
+  $scope.delete = ($index) => {
+    Application.deleteApp($scope.results[$index]._id)
+      .then(() => {
+        $scope.getJobData();
+      })
   };
 
   $scope.getJobData();

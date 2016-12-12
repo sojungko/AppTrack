@@ -34,12 +34,21 @@ module.exports = {
   },
 
   addStage(req, res) {
+    console.log("STAGE BODY : ", req.body)
+    var isOpen = true;
+    if(req.body.interviewType === 'Application Complete'){
+      isOpen = false;
+    }
   	applicationModel.findByIdAndUpdate(req.params.id, {
 	    $push: {
 	      "stages": req.body
+      },
+      $set: {
+        "isOpen": isOpen
       }
     },
     function(err, stage) {
+      console.log("ADD STAGE AFTER: ", stage);
       res.send(stage)
     });
   },
