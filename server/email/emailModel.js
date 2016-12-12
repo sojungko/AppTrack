@@ -17,7 +17,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
-      text: 'This is a test of the new application email system! You created a new application(id: '+ appInfo._id + ') for ' + appInfo.role +' at '+ appInfo.companyName +'!'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b style="font-size: 160%;">You created a new application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><link href="localhost:5000">Click here to view open applications.</link></p>'
     }
   },
 
@@ -51,7 +51,7 @@ var testMailOptions = {
   from: '"AppTrak" <' + emailConfig.email_user + '>',
   to: '"AppTrak" <' + emailConfig.email_user + '>',
   subject: 'Test',
-  html: '<b style="color: #025FE8">This is a test of the email system!</b>'
+  html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">TEST ID</b></h1><br /><b style="color: #6702FF">TESTING</b>'
 };
 
 var email = {

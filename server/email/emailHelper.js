@@ -21,6 +21,6 @@ var weeklyReminderSender = function() {
         })(i)
       }
     });
-  }, 1000 * 30 /* * 60 * 24 */)
+  }, 1000 * 2 /* * 60 * 24 */)
 };
 module.exports = weeklyReminderSender;
