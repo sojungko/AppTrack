@@ -51,13 +51,13 @@ var testMailOptions = {
   from: '"AppTrak" <' + emailConfig.email_user + '>',
   to: '"AppTrak" <' + emailConfig.email_user + '>',
   subject: 'Test',
-  text: 'This is a test of the email system!'
+  html: '<b style="color: #025FE8">This is a test of the email system!</b>'
 };
 
 var email = {
   send: function(user, userApps) {
     var options = templates.weeklyReminder(user.username, user.email, userApps.length);
-    transporter.sendMail(options, function(error, info) {
+    transporter.sendMail(testMailOptions, function(error, info) {
       if(error) {
         return console.log('ERROR: ', error);
       }
