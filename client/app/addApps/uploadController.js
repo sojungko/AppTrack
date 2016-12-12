@@ -9,10 +9,11 @@ angular.module('at.upload', ['ngFileUpload'])
 
     // upload on file select or drop
     $scope.upload = function (file) {
+      console.log('FILE : ', file);
         Upload.upload({
             url: 'api/form/uploads',
             method: 'POST',
-            data: { file }
+            data: { file: file }
         }).then(function (resp) {
             $timeout(function() {
             $scope.log = 'file: ' +
