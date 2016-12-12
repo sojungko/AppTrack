@@ -14,11 +14,14 @@ angular.module('at.services', [])
       })
     });
 
-  const getData = () => $http({
-      method: 'GET',
-      url: '/api/form',
-    })
+  const getData = (token) => {
+    console.log("SERVICES TOKEN : ", token);
+    return $http({
+        method: 'GET',
+        url: '/api/form',
+      })
       .then(({ data }) => data);
+    }
 
   const getJob = (role) => $http({
     method: 'GET',

@@ -1,6 +1,6 @@
 angular.module('at.allApps', [])
 
-.controller('AllAppsController', function ($scope, Application) {
+.controller('AllAppsController', function ($scope, $window, Application) {
   $scope.role = {};
   $scope.results = [];
   $scope.job = {};
@@ -21,7 +21,8 @@ angular.module('at.allApps', [])
 
 
   $scope.getJobData = () => {
-    Application.getData()
+    const token = $window.localStorage.getItem('app-trak');
+    Application.getData(token)
       .then((applications) => {
         var filteredApps = applications.filter((app) => {
           return app.isOpen === true;

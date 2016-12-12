@@ -3,8 +3,6 @@ const applicationModel = require('./applicationModel.js');
 const jwt = require('jwt-simple');
 const fs = require('fs');
 const path = require('path');
-const multer  = require('multer');
-var upload = multer({ dest: 'uploads/' }).single('file');
 
 const findApplication = Q.nbind(applicationModel.findOne, applicationModel);
 const createApplication = Q.nbind(applicationModel.create, applicationModel);
@@ -12,8 +10,11 @@ const findAllApplication = Q.nbind(applicationModel.find, applicationModel);
 
 module.exports = {
   allPositions(req, res) {
-    findAllApplication({})
+    var decrypted = jwt.decode(req.headers['x-access-token'], 'apptrak');
+    console.log("DECRYPTED ID : ", decrypted._id);
+    findAllApplication({userId: decrypted._id})
       .then((positions) => {
+        console.log("USER POSITIONS GET ALL : ", positions);
         res.json(positions);
       })
       .fail((err) => {
