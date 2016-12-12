@@ -12,15 +12,13 @@ var weeklyReminderSender = function() {
         (function(index){
           Apps.find({userId:users[index].id}, function(err, apps) {
             var userApps = apps;
-            console.log('USER!!!!: ', users[index])
             if(userApps.length > 0) {
-              console.log('SENDING EMAIL TO USER: ', users[index]);
               emails.send(users[index], userApps);
             }
           });
         })(i)
       }
     });
-  }, 1000 * 2 /* * 60 * 24 */)
+  }, 1000 * 60 /* * 60 * 24 */)
 };
 module.exports = weeklyReminderSender;

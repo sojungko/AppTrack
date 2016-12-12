@@ -57,7 +57,7 @@ var testMailOptions = {
 var email = {
   send: function(user, userApps) {
     var options = templates.weeklyReminder(user.username, user.email, userApps.length);
-    transporter.sendMail(testMailOptions, function(error, info) {
+    transporter.sendMail(options, function(error, info) {
       if(error) {
         return console.log('ERROR: ', error);
       }
@@ -78,7 +78,6 @@ var email = {
 
   },
   closedSend: function(req, res) {
-    console.log("CLOSED SEND REQ: ", req.body);
     var user;
     Users.find({_id:req.body.data.userId}, function(err, results) {
       user = results[0];
