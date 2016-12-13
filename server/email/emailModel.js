@@ -29,8 +29,7 @@ const templates = { // each function will return a object filled with user varab
         cid: 'unique@appTrak.ee' //same cid value as in the img src
       }]
     }
-    )
-  },
+  ),
 
   closedApp: (user, appInfo) => ( // called by closedSend fn below
     {
@@ -48,8 +47,7 @@ const templates = { // each function will return a object filled with user varab
         cid: 'unique@appTrak.ee' //same cid value as in the 
       }]
     }
-    )
-  },
+  ),
   weeklyReminder: (username ,userEmail, numberOfApps) => (
     { // called by send fn below
       from: '"AppTrak" <' + emailConfig.email_user + '>',
@@ -65,8 +63,7 @@ const templates = { // each function will return a object filled with user varab
         cid: 'unique@appTrak.ee' //same cid value as in the 
       }]
     }
-    )
-  },
+  ),
   deletedApp: (user, appInfo) => ( // takes user and appInfo object
     { // called by deletedSend fn below
       from: '"AppTrak" <' + emailConfig.email_user + '>', 
