@@ -39,4 +39,13 @@ angular.module('at.auth', [])
     return !!$window.localStorage.getItem('app-trak');
   };
 
+  $scope.getUserName = () => {
+    Auth.getUserName()
+      .then((username) => {
+        $scope.username = username;
+      })
+  };
+
+  $scope.getUserName();
+
 });

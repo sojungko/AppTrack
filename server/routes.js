@@ -8,6 +8,7 @@ const email = require('./email/emailModel.js');
 
 router.post('/api/users/signup', userController.signUp);
 router.post('/api/users/signin', userController.signIn);
+router.get('/api/users', userController.sendUsername);
 
 router.post('/api/form', applicationController.createApplication);
 

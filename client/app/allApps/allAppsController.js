@@ -19,7 +19,6 @@ angular.module('at.allApps', [])
     'Application Complete'
   ];
 
-
   $scope.getJobData = () => {
     const token = $window.localStorage.getItem('app-trak');
     Application.getData(token)

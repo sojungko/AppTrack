@@ -18,7 +18,8 @@ module.exports = {
 							if (err) {
 								res.status(500).send(err);
 							}
-							var token = jwt.encode(newUser, 'apptrak')
+							var returning = { username: newUser.username, email: newUser.email }
+							var token = jwt.encode(returning, 'apptrak')
 							res.json(token);
 						});
 					})
@@ -30,14 +31,15 @@ module.exports = {
 	},
 
 	signIn( { body: { username, password } }, res) {
-	  userModel.findOne({ username: username })
+	  userModel.findOne({ username })
 	    .exec(function(err, user) {
 	      if (!user) {
 	        res.sendStatus(401);
 	      } else {
 	        bcrypt.compare(password, user.password, function(err, results) {
 	          if (results) {
-							var token = jwt.encode(user, 'apptrak');
+							var returning = { username: user.username, email: user.email }
+							var token = jwt.encode(returning, 'apptrak');
 							res.send(token);
 	          } else {
 							res.sendStatus(401);
@@ -45,5 +47,10 @@ module.exports = {
 	        });
 	      }
 	    });
+	},
+
+	sendUsername(req , res) {
+		const decoded = jwt.decode(req.headers['x-access-token'], 'apptrak');
+		res.send(decoded.username);
 	}
 }
