@@ -6,6 +6,7 @@ angular.module('at.allApps', [])
   $scope.job = {};
   $scope.stageattrs = {};
   $scope.edit = {};
+  $scope.dropdownOption = 'Select Stages'
 
   // Dropdown menu for Add Stage Card //
 
@@ -19,6 +20,11 @@ angular.module('at.allApps', [])
     'Application Complete'
   ];
 
+  $scope.setDropDown = (index) => {
+    console.log('index:', index)
+    console.log($scope.stageSelect[index])
+    $scope.dropdownOption = $scope.stageSelect[index];
+  };
 
   $scope.getJobData = () => {
     const token = $window.localStorage.getItem('app-trak');
@@ -31,8 +37,12 @@ angular.module('at.allApps', [])
       });
   };
 
-  $scope.pushToStages = ($index) => {
-    Application.putStageData($scope.results[$index]._id, $scope.stageattrs)
+  $scope.pushToStages = (index) => {
+    console.log(index)
+    console.log('setting a new interview type: ', $scope.stageSelect[index]);
+    $scope.stageattrs.interviewType = $scope.stageSelect[index]
+    console.log($scope.results[index]._id, $scope.stageattrs.interviewType);
+    Application.putStageData($scope.results[index]._id, $scope.stageattrs)
       .then(() => {
         $scope.stageattrs = {};
         $scope.getJobData();
