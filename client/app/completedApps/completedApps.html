@@ -2,7 +2,7 @@
 <div class="col-md-8 col-md-offset-2">
 
   <!-- COMPLETED APPLICATION VIEW title -->
-  <div class="page-header"><h3>Completed Applications</h3></div>
+  <div class="page-header"><h2>Completed Applications</h2></div>
 
   <!-- Application Search -->
   <div align='center'>
@@ -30,7 +30,7 @@
       <!-- 1) Open Position Card, has 5 fields -->
       <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
       <li id="card" style="overflow:scroll">
-        <div id="card-title"><strong>Application</strong><br></div>
+        <div><h3>Application</h3></div>
         <div><span>{{result.dateApplied.slice(0,10)}}</span></div>
 
         <!-- i) COMPANY -->
@@ -38,7 +38,7 @@
           <span ng-hide="edit[$index].editorEnabled">{{result.companyName}}</span>
         </div>
         <div ng-show="edit[$index].editorEnabled">
-          <input ng-model="edit[$index].companyName" id="field" class="mdl-textfield__input" type="text">
+          <input ng-model="edit[$index].companyName" id="field" class="form-control" type="text">
         </div>
 
         <!-- ii) POSITION -->
@@ -46,7 +46,7 @@
           <span ng-hide="edit[$index].editorEnabled">{{result.role}}</span>
         </div>
         <div ng-show="edit[$index].editorEnabled">
-          <input ng-model="edit[$index].role" id="field" class="mdl-textfield__input" type="text">
+          <input ng-model="edit[$index].role" id="field" class="form-control" type="text">
         </div>
 
         <!-- iii) APPLIED THROUGH -->
@@ -54,7 +54,7 @@
           <span ng-hide="edit[$index].editorEnabled">{{result.appliedThrough}}</span>
         </div>
         <div ng-show="edit[$index].editorEnabled">
-          <input ng-model="edit[$index].appliedThrough" id="field" class="mdl-textfield__input" type="text">
+          <input ng-model="edit[$index].appliedThrough" id="field" class="form-control" type="text">
         </div>
 
         <!-- iv) CONTACT NAME -->
@@ -62,7 +62,7 @@
           <span ng-hide="edit[$index].editorEnabled">{{result.contactName}}</span>
         </div>
         <div ng-show="edit[$index].editorEnabled">
-          <input ng-model="edit[$index].contactName" id="field" class="mdl-textfield__input" type="text">
+          <input ng-model="edit[$index].contactName" id="field" class="form-control" type="text">
         </div>
 
         <!-- v) CONTACT EMAIL -->
@@ -70,7 +70,7 @@
           <span ng-hide="edit[$index].editorEnabled">{{result.contactEmail}}</span>
         </div>
         <div ng-show="edit[$index].editorEnabled">
-          <input ng-model="edit[$index].contactEmail" id="field" class="mdl-textfield__input" type="text">
+          <input ng-model="edit[$index].contactEmail" id="field" class="form-control" type="text">
         </div>
 
         <!-- vi) CONTACT PHONE -->
@@ -78,7 +78,7 @@
           <span ng-hide="edit[$index].editorEnabled">{{result.contactPhone}}</span>
         </div>
         <div ng-show="edit[$index].editorEnabled">
-          <input ng-model="edit[$index].contactPhone" id="field" class="mdl-textfield__input" type="text">
+          <input ng-model="edit[$index].contactPhone" id="field" class="form-control" type="text">
         </div>
 
         <!-- Save Button -->
@@ -91,7 +91,7 @@
 
       <!-- Displays Stage Data -->
       <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
-        <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
+        <div><h3>Stage {{$index + 1}}</h3></div>
         <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
         <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate.slice(0,10)}}</div>
         <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>

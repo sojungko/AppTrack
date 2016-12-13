@@ -1,9 +1,9 @@
 h1, h2, h3 {
-   text-align: center;
+  text-align: center;
 }
 
 input {
-  padding: 30px;
+  height: 20px;
 }
 
 .navbar-brand {
@@ -13,6 +13,7 @@ input {
 body {
   font-family: 'Raleway', sans-serif;
 }
+// Overwriting Bootstrap Navbar default colors //
 
 #navbar-fixed-top {
   background-color: #232323;
@@ -26,29 +27,6 @@ body {
 #btn-primary {
   background-color: #6076a3;
   border-style: none;
-}
-
-#openApps {
-  padding-top: 20px
-}
-
-#title {
-  margin-top: 60px;
-  font-size: 500%;
-}
-
-#card-title {
-  font-size:130%;
-}
-
-#addButton {
-
-  margin-top: 15px;
-}
-
-#stage {
-  float: left;
-  padding-left: 20%;
 }
 
 #offer {
@@ -90,7 +68,6 @@ col {
   border-radius: 10px;
   width: 300px;
   height: 450px;
-  font-family: 'Source Sans Pro', sans-serif;
   margin: 20px 20px 0 20px;
   float: left;
   display: inline-block;
@@ -102,8 +79,7 @@ col {
 }
 
 #search-one {
-
-    display: inline-block;
+  display: inline-block;
 }
 
 .add-stage {
@@ -111,7 +87,6 @@ col {
   border-width: 1px;
   border-color: #b7b7b7;
   border-radius: 10px;
-  font-family: 'Source Sans Pro', sans-serif;
   font-size: medium;
   width: 300px;
   height: 450px;
@@ -138,17 +113,12 @@ col {
   width: 300px;
   height: 450px;
   font-size: large;
-  font-family: 'Source Sans Pro', sans-serif;
   background-color: #edfaff;
   margin: 20px 20px 0 20px;
   position: relative;
   float: left;
   display: block;
   padding: 15px;
-}
-
-input {
-  height: 20px;
 }
 
 #positions {
@@ -232,4 +202,9 @@ input {
 
 ul {
   padding-left: 0;
+}
+
+.page-header h2 {
+  text-transform: uppercase;
+  font-weight: bold;
 }
