@@ -32,7 +32,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'Application Closed',
-      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><</tr><br /><tr><td><b style="font-size: 125%;">Dear '+user.username+',</b></td></tr><br /><br /><tr><td><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b></td></tr>tr><td><h2 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h2></td><tr><td><p style="font-size: 125%;"><a href="apptrakk.herokuapp.com">Click here to view closed applications.</a></p></td></tr></table>',
+      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr></tr><br /><tr><td><b style="font-size: 125%;">Dear '+user.username+',</b></td></tr><br /><br /><tr><td><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b></td></tr><tr><td><h2 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h2></td><tr><td><p style="font-size: 125%;"><a href="apptrakk.herokuapp.com">Click here to view closed applications.</a></p></td></tr></table>',
       attachments: [{
         filename: 'appTrak.png',
         path: path.join(__dirname + '/image/appTrak.png'),
@@ -45,7 +45,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><tr><td><b style="font-size: 125%;">Dear '+username+',</b><</td></tr>br /><br /><tr><td><b style="font-size: 125%;">You have '+numberOfApps+' application\'s open!</b></td></tr><tr><td><p><a href="apptrakk.herokuapp.com">Click here to view all open applications.</a></p></td></tr></table>',
+      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><tr><td><b style="font-size: 125%;">Dear '+username+',</b></td></tr><br /><br /><tr><td><b style="font-size: 125%;">You have '+numberOfApps+' application\'s open!</b></td></tr><tr><td><p style="font-size: 125%;"><a href="apptrakk.herokuapp.com">Click here to view all open applications.</a></p></td></tr></table>',
       attachments: [{
         filename: 'appTrak.png',
         path: path.join(__dirname + '/image/appTrak.png'),
