@@ -5,20 +5,22 @@
   <div class="page-header"><h3>Completed Applications</h3></div>
 
   <!-- Application Search -->
-  <div class = 'row'>
-    <form name='searchCompletedApp' class="form-group">
-      <label for ="searchCompletedApp">Search Completed Applications</label>
-      <div class = "input-group">
+  <div align='center'>
+  <form name='searchAllApps'>
+    <!-- <label for ="searchAllApps">Search Open Applications</label> -->
+    <div class = "form-group">
 
-        <!-- Input Field / Search Bar  -->
-        <input
+      <!-- Input Field / Search Bar  -->
+      <input
         type='text',
-        name='searchCompletedAppsQuery',
+        name='searchAllAppsQuery',
         ng-model='searchText',
-        class="form-control"/>
+        class="form-control",
+        placeholder='Search Open Applications...'
+        />
 
-      </div> <!-- Closing input-group -->
-    </form> <!-- Closing from group -->
+    </div> <!-- Closing input-group -->
+  </form> <!-- Closing from group -->
   </div>
 
   <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
