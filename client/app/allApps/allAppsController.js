@@ -1,6 +1,6 @@
 angular.module('at.allApps', [])
 
-.controller('AllAppsController', function ($scope, $window, Application) {
+.controller('AllAppsController', function ($scope, $window, $location, Application) {
   $scope.role = {};
   $scope.results = [];
   $scope.job = {};
@@ -34,6 +34,9 @@ angular.module('at.allApps', [])
           return app.isOpen === true;
         })
         $scope.results = filteredApps.reverse();
+      })
+      .then(() => {
+        $location.path('/');
       });
   };
 
