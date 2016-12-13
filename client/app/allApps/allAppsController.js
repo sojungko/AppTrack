@@ -33,9 +33,6 @@ angular.module('at.allApps', [])
         })
         $scope.results = filteredApps.reverse();
       })
-      .then(() => {
-        $location.path('/');
-      });
   };
 
   $scope.pushToStages = (index) => {
