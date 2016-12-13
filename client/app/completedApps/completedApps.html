@@ -5,20 +5,21 @@
   <div class="page-header"><h3>Completed Applications</h3></div>
 
   <!-- Application Search -->
+  <div class = 'row'>
+    <form name='searchCompletedApp' class="form-group">
+      <label for ="searchCompletedApp">Search Completed Applications</label>
+      <div class = "input-group">
 
-  <form name='searchCompletedApp' class="form-group">
-    <label for ="searchCompletedApp">Search Completed Applications</label>
-    <div class = "input-group">
-
-      <!-- Input Field / Search Bar  -->
-      <input
+        <!-- Input Field / Search Bar  -->
+        <input
         type='text',
         name='searchCompletedAppsQuery',
         ng-model='searchText',
         class="form-control"/>
 
-    </div> <!-- Closing input-group -->
-  </form> <!-- Closing from group -->
+      </div> <!-- Closing input-group -->
+    </form> <!-- Closing from group -->
+  </div>
 
   <!-- ng-repeat APPLICATIONS. It has 1) Open Position Card, 2) Add Stage Card -->
   <ul ng-repeat='result in results | filter:searchText track by $index' ng-model='application'>
@@ -71,7 +72,9 @@
         </div>
 
         <!-- Save Button -->
-        <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+        <div class='btn-group'>
+          <br /> <button class='btn btn-info' ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+        </div>
 
       </li><!-- Closing Open Position Card -->
 
