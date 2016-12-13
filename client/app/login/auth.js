@@ -40,6 +40,7 @@ angular.module('at.auth', [])
   };
 
   $scope.getUserName = () => {
+    //only use for this function is to grab username and display it in top navbar for "Welcome **username**!"
     Auth.getUserName()
     .then((username) => {
       $scope.username = username;
