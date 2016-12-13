@@ -31,6 +31,7 @@
       <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
       <li id="card">
         <div id="card-title"><strong>Open Position</strong><br></div>
+        <div><span>{{result.dateApplied.slice(0,10)}}</span></div>
 
         <!-- i) COMPANY -->
         <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
@@ -48,23 +49,7 @@
           <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
         </div>
 
-        <!-- iii) JOB DESCRIPTION -->
-        <div id="field" ng-click="enableEditor($index)"><strong>Job Description:</strong><br>
-         <span ng-hide="edit.editorEnabled">{{result.jobDescription}}</span>
-        </div>
-        <div ng-show="edit.editorEnabled">
-         <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-        </div>
-
-        <!-- iii.5) COVER LETTER  -->
-        <div id="field" ng-click="enableEditor($index)"><strong>Cover Letter:</strong><br>
-         <span ng-hide="edit.editorEnabled">{{result.coverLetter}}</span>
-        </div>
-        <div ng-show="edit.editorEnabled">
-         <input ng-model="edit.coverLetter" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
-        </div>
-
-        <!-- iv) APPLIED THROUGH -->
+        <!-- iii) APPLIED THROUGH -->
         <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
           <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
         </div>
@@ -72,9 +57,25 @@
           <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
         </div>
 
-        <!-- v) CONTACT NAME -->
+        <!-- iv) CONTACT NAME -->
         <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
           <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
+        </div>
+
+        <!-- v) CONTACT EMAIL -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Contact Email:</strong><br>
+          <span ng-hide="edit.editorEnabled">{{result.contactEmail}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+          <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        </div>
+
+        <!-- vi) CONTACT PHONE -->
+        <div id="field" ng-click="enableEditor($index)"><strong>Contact Phone:</strong><br>
+          <span ng-hide="edit.editorEnabled">{{result.contactPhone}}</span>
+        </div>
+        <div ng-show="edit.editorEnabled">
+          <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <div ng-show="edit.editorEnabled">
