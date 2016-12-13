@@ -14,6 +14,9 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+#navbar-fixed-top {
+  background-color: #232323;
+}
 
 #btn-info {
   background-color: #7cc5dd;
@@ -81,6 +84,9 @@ col {
 }
 
 #card {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b7b7b7;
   border-radius: 10px;
   width: 300px;
   height: 450px;
@@ -101,6 +107,9 @@ col {
 }
 
 .add-stage {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b7b7b7;
   border-radius: 10px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: medium;
@@ -110,7 +119,7 @@ col {
   float: left;
   display: block;
   padding: 15px;
-  background-color: #d1e6fc;
+  background-color: #d8e9ff;
 }
 
 #list-item {
@@ -122,6 +131,9 @@ col {
 }
 
 #stage-name {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #b7b7b7;
   border-radius: 10px;
   width: 300px;
   height: 450px;
