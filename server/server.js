@@ -27,7 +27,7 @@ app.listen(port, (err) => {
     var reminded = false;
     while(!reminded){
       console.log('Starting weekly reminder function');
-      weeklyReminder(); //uncomment to start weekly reminder function
+      weeklyReminder(); // function lives in emailHelper.js
       reminded = true;
     }
     console.log('Server is listening to port : ', port);
