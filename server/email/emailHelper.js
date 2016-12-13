@@ -7,7 +7,6 @@ var weeklyReminderSender = function() {
   var user;
   var flag = false;
   setInterval(function(){
-    console.log('INSIDE SET INTERVAL')
     var date = new Date();
     var day = date.getDay();
     var hour = date.getHours();
@@ -20,7 +19,6 @@ var weeklyReminderSender = function() {
             Apps.find({userId:users[index].id}, function(err, apps) {
               var userApps = apps;
               if(userApps.length > 0) {
-                console.log('sending mail')
                 emails.send(users[index], userApps);
               }
             });
