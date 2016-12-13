@@ -20,7 +20,7 @@ angular.module('at.services', [])
         url: '/api/form',
       })
       .then(({ data }) => data);
-    }
+    };
 
   const getJob = (role) => $http({
     method: 'GET',
@@ -96,5 +96,13 @@ angular.module('at.services', [])
     $location.path('/login');
   };
 
-  return { signin, signup, isAuth, signout };
+  const getUserName = () => $http({
+    method: 'GET',
+    url: '/api/users'
+  }).then(({ data }) => {
+    console.log('DATA : ', data);
+    return data
+  });
+
+  return { signin, signup, isAuth, signout, getUserName };
 })

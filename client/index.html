@@ -54,6 +54,7 @@
 
           <!-- NAV BAR RIGHT -->
             <ul class="nav navbar-nav navbar-right">
+              <li><a class="mdl-navigation__link">Welcome {{ username }}!</a></li>
               <li><a href="/#!/login" class="mdl-navigation__link" ng-click="signout()" ng-hide='!isAuth()'>Log Out</a></li>
             </ul>
 
@@ -75,7 +76,6 @@
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
     <script src="angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-    <script src="ng-file-upload/dist/ng-file-upload.min.js"></script>
     <script src="app.js"></script>
     <script src="/allApps/allAppsController.js"></script>
     <script src="/addApps/addAppsController.js"></script>
