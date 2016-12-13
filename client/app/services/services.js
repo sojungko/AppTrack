@@ -7,6 +7,9 @@ angular.module('at.services', [])
     data: { form },
   })
     .then((postDataResponse) => {
+      //postDataResponse contains data posted to database
+      //send response data straight down to HTTP request to nodemailer
+      //will parse userId on email server and send application created email
       $http({
         method: 'POST',
         url: '/api/newAppEmail',
@@ -14,7 +17,7 @@ angular.module('at.services', [])
       })
     });
 
-  const getData = (token) => {
+  const getData = () => {
     return $http({
         method: 'GET',
         url: '/api/form',
