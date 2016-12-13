@@ -44,18 +44,19 @@ angular.module('at.completedApps', [])
       });
   };
 
-  $scope.enableEditor = ($index) => {
-    $scope.edit.editorEnabled = true;
-    $scope.edit.companyName = $scope.results[$index].companyName;
-    $scope.edit.role = $scope.results[$index].role;
-    $scope.edit.jobDescription = $scope.results[$index].jobDescription;
-    $scope.edit.appliedThrough = $scope.results[$index].appliedThrough;
-    $scope.edit.contactName = $scope.results[$index].contactName;
+  $scope.enableEditor = (index) => {
+    $scope.edit[index] = {};
+    $scope.edit[index].editorEnabled = true;
+    $scope.edit.companyName = $scope.results[index].companyName;
+    $scope.edit.role = $scope.results[index].role;
+    $scope.edit.jobDescription = $scope.results[index].jobDescription;
+    $scope.edit.appliedThrough = $scope.results[index].appliedThrough;
+    $scope.edit.contactName = $scope.results[index].contactName;
   };
 
   $scope.save = ($index, edit) => {
     $scope.edit.editorEnabled = false;
-    Application.putEditData($scope.results[$index]._id, $scope.edit)
+    Application.putEditData($scope.results[$index]._id, edit)
       .then(() => {
         $scope.edit = {};
         $scope.getJobData();
