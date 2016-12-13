@@ -11,7 +11,7 @@ var weeklyReminderSender = function() {
     var date = new Date();
     var day = date.getDay();
     var hour = date.getHours();
-    if(day === 2 && !flag) {
+    if(day === 2 && hour === 15 && !flag) {
       flag = true
       Users.find({username:reg}, function(err, data) {
         var users = data;
