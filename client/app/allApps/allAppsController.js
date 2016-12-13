@@ -24,6 +24,7 @@ angular.module('at.allApps', [])
     const token = $window.localStorage.getItem('app-trak');
     Application.getData(token)
       .then((applications) => {
+        console.log("GET APPS: ", applications);
         var filteredApps = applications.filter((app) => {
           return app.isOpen === true;
         })
