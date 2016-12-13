@@ -21,8 +21,6 @@ angular.module('at.allApps', [])
   ];
 
   $scope.setDropDown = (index) => {
-    console.log('index:', index)
-    console.log($scope.stageSelect[index])
     $scope.dropdownOption = $scope.stageSelect[index];
   };
 
@@ -45,6 +43,9 @@ angular.module('at.allApps', [])
       .then(() => {
         $scope.stageattrs = {};
         $scope.getJobData();
+      })
+      .then(() => {
+        $scope.dropdownOption = 'Select Stages';
       });
   };
 
