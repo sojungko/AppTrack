@@ -35,54 +35,54 @@
 
         <!-- i) COMPANY -->
         <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
-          <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
+          <span ng-hide="edit[$index].editorEnabled">{{result.companyName}}</span>
         </div>
-        <div ng-show="edit.editorEnabled">
-          <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].companyName" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- ii) POSITION -->
         <div id="field" ng-click="enableEditor($index)"><strong>Position:</strong><br>
-          <span ng-hide="edit.editorEnabled">{{result.role}}</span>
+          <span ng-hide="edit[$index].editorEnabled">{{result.role}}</span>
         </div>
-        <div ng-show="edit.editorEnabled">
-          <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].role" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- iii) APPLIED THROUGH -->
         <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
-          <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
+          <span ng-hide="edit[$index].editorEnabled">{{result.appliedThrough}}</span>
         </div>
-        <div ng-show="edit.editorEnabled">
-          <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].appliedThrough" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- iv) CONTACT NAME -->
         <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
-          <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
+          <span ng-hide="edit[$index].editorEnabled">{{result.contactName}}</span>
         </div>
-        <div ng-show="edit.editorEnabled">
-          <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].contactName" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- v) CONTACT EMAIL -->
         <div id="field" ng-click="enableEditor($index)"><strong>Contact Email:</strong><br>
-          <span ng-hide="edit.editorEnabled">{{result.contactEmail}}</span>
+          <span ng-hide="edit[$index].editorEnabled">{{result.contactEmail}}</span>
         </div>
-        <div ng-show="edit.editorEnabled">
-          <input ng-model="edit.contactEmail" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].contactEmail" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- vi) CONTACT PHONE -->
         <div id="field" ng-click="enableEditor($index)"><strong>Contact Phone:</strong><br>
-          <span ng-hide="edit.editorEnabled">{{result.contactPhone}}</span>
+          <span ng-hide="edit[$index].editorEnabled">{{result.contactPhone}}</span>
         </div>
-        <div ng-show="edit.editorEnabled">
-          <input ng-model="edit.contactPhone" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+        <div ng-show="edit[$index].editorEnabled">
+          <input ng-model="edit[$index].contactPhone" id="field" class="mdl-textfield__input" type="text">
         </div>
 
         <!-- Save Button -->
-        <button class='btn btn-info' id='btn-info' ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+        <button class='btn btn-info' id='btn-info' ng-click="save($index, edit[$index])">Save</button>
 
       </li><!-- Closing Open Position Card -->
 
