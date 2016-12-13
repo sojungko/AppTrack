@@ -38,10 +38,6 @@ angular.module('at.allApps', [])
   };
 
   $scope.pushToStages = (index) => {
-    console.log(index)
-    console.log('setting a new interview type: ', $scope.stageSelect[index]);
-    $scope.stageattrs.interviewType = $scope.stageSelect[index]
-    console.log($scope.results[index]._id, $scope.stageattrs.interviewType);
     Application.putStageData($scope.results[index]._id, $scope.stageattrs)
       .then(() => {
         $scope.stageattrs = {};
