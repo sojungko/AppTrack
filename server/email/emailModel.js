@@ -17,7 +17,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b><br /><p><link href="localhost:5000">Click here to view open applications.</link></p>'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b><br /><p><a href="apptrakk.herokuapp.com">Click here to view open applications.</a></p>'
     }
   },
 
@@ -26,7 +26,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'Application Closed',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><link href="localhost:5000">Click here to view closed applications.</link></p>'
+      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><a href="apptrakk.herokuapp.com">Click here to view closed applications.</a></p>'
     }
   },
   weeklyReminder: function(username ,userEmail, numberOfApps) {
@@ -34,7 +34,7 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      html: '<b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You have'+numberOfApps+' application\'s open!</b><br /><p><link href="localhost:5000">Click here to view all open applications.</link></p>'
+      html: '<b>Dear '+username+',</b><br /><br /><b style="font-size: 125%;">You have '+numberOfApps+' application\'s open!</b><br /><p><a href="apptrakk.herokuapp.com">Click here to view all open applications.</a></p>'
     }
   },
   deletedApp: function(user, appInfo) {
@@ -62,6 +62,8 @@ var email = {
         return console.log('ERROR: ', error);
       }
       console.log('Weekly Reminder Message Sent to ' + user.username + ': ', info.response);
+      transporter.close();
+      return info.response;
     })
   },
   newSend: function(req, res) {
@@ -73,6 +75,8 @@ var email = {
       transporter.sendMail(options, function(err, info) {
         if(err) { return console.log('ERROR: ', err); }
         console.log('NEW APP Message Sent: ', info.response);
+        transporter.close();
+        res.send(info.response);
       })
     })
 
@@ -86,6 +90,8 @@ var email = {
         transporter.sendMail(options, function(err, info) {
           if(err) { return console.log('ERROR: ', err); }
           console.log('CLOSED APP Message Sent: ', info.response);
+          transporter.close();
+          res.send(info.response);
         });
       }
     });
@@ -101,6 +107,8 @@ var email = {
       transporter.sendMail(options, function(err, info) {
         if(err) { return console.log('ERROR: ', err); }
         console.log('DELETED APP Message Sent: ', info.response);
+        transporter.close();
+        res.send(info.response);
       })
     });
   }
