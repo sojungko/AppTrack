@@ -105,9 +105,10 @@
         <br>
 
         <div class="btn-group" uib-dropdown is-open="status.isopen">
-          <button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle ng-disabled="disabled">
+          <button id="btn-info" style="background-color: #e8e8e8; color: black; border-style: solid; border-color: #969696" type="button" class="btn btn-info" uib-dropdown-toggle ng-disabled="disabled">
            {{ dropdownOption }} <span class="caret"></span>
           </button>
+          <br>
           <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
             <li role ="menuitem" ng-repeat="x in stageSelect track by $index"><a ng-click="setDropDown($index); stageattrs.interviewType = x">{{x}}</a></li>
           </ul>
