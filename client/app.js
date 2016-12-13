@@ -17,6 +17,9 @@ angular.module('at', [
     controller: 'AllAppsController',
     authenticate: true,
   })
+  .when('/home', {
+    templateUrl: './app/cover/cover.html'
+  })
   .when('/addApps', {
     templateUrl: './app/addApps/addApps.html',
     controller: 'AddAppsController',
