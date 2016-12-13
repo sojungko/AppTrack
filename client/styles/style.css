@@ -81,7 +81,7 @@ col {
 }
 
 #card {
-  border-radius: 5px;
+  border-radius: 10px;
   width: 300px;
   height: 450px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -101,7 +101,7 @@ col {
 }
 
 .add-stage {
-  border-radius: 5px;
+  border-radius: 10px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: medium;
   width: 300px;
@@ -122,7 +122,7 @@ col {
 }
 
 #stage-name {
-  border-radius: 5px;
+  border-radius: 10px;
   width: 300px;
   height: 450px;
   font-size: large;
