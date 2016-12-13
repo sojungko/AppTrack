@@ -18,7 +18,7 @@ module.exports = {
 							if (err) {
 								res.status(500).send(err);
 							}
-							var returning = { username: newUser.username, email: newUser.email }
+							var returning = {_id: newUser._id, username: newUser.username, email: newUser.email }
 							var token = jwt.encode(returning, 'apptrak')
 							res.json(token);
 						});
@@ -38,7 +38,7 @@ module.exports = {
 	      } else {
 	        bcrypt.compare(password, user.password, function(err, results) {
 	          if (results) {
-							var returning = { username: user.username, email: user.email }
+							var returning = {_id: user._id, username: user.username, email: user.email }
 							var token = jwt.encode(returning, 'apptrak');
 							res.send(token);
 	          } else {
