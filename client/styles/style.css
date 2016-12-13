@@ -29,6 +29,10 @@ body {
   border-style: none;
 }
 
+#body-font {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 #offer {
   float: right;
   padding-right: 20%;
@@ -62,9 +66,6 @@ col {
 }
 
 #card {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #b7b7b7;
   border-radius: 10px;
   width: 300px;
   height: 450px;
@@ -83,9 +84,6 @@ col {
 }
 
 .add-stage {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #b7b7b7;
   border-radius: 10px;
   font-size: medium;
   width: 300px;
@@ -106,9 +104,6 @@ col {
 }
 
 #stage-name {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #b7b7b7;
   border-radius: 10px;
   width: 300px;
   height: 450px;
@@ -206,5 +201,6 @@ ul {
 
 .page-header h2 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
+  font-family: 'Source Sans Pro', sans-serif;
 }
