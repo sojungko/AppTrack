@@ -1,6 +1,7 @@
 var emailConfig = require('./emailConfig');
 var nodemailer = require('nodemailer');
 var Users = require('../users/userModel.js');
+var path = require('path');
 
 var transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -17,7 +18,12 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'New Application Created',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b><br /><p><a href="apptrakk.herokuapp.com">Click here to view open applications.</a></p>'
+      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><br /><tr><td><b style="font-size: 125%;">Dear '+user.username+',</b></td></tr><br /><br /><tr><td><b style="font-size: 125%;">You created a new application for '+ appInfo.role +' at '+ appInfo.companyName +'!</b></td></tr><tr><td><h2 style="color: #025FE8">Application ID:<b style="color: #656765">' + appInfo._id + '</b></h2></td></tr><tr><td><p style="font-size: 125%;"><a href="apptrakk.herokuapp.com">Click here to view open applications.</a></p></td></tr></table>',
+      attachments: [{
+        filename: 'appTrak.png',
+        path: path.join(__dirname + '/image/appTrak.png'),
+        cid: 'unique@appTrak.ee' //same cid value as in the 
+      }]
     }
   },
 
@@ -26,7 +32,12 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' + emailConfig.email_user + '>',
       subject: 'Application Closed',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b><br /><p><a href="apptrakk.herokuapp.com">Click here to view closed applications.</a></p>'
+      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><</tr><br /><tr><td><b style="font-size: 125%;">Dear '+user.username+',</b></td></tr><br /><br /><tr><td><b style="font-size: 125%;">You closed an application for '+appInfo.role+' at '+appInfo.companyName+'!</b></td></tr>tr><td><h2 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h2></td><tr><td><p style="font-size: 125%;"><a href="apptrakk.herokuapp.com">Click here to view closed applications.</a></p></td></tr></table>',
+      attachments: [{
+        filename: 'appTrak.png',
+        path: path.join(__dirname + '/image/appTrak.png'),
+        cid: 'unique@appTrak.ee' //same cid value as in the 
+      }]
     }
   },
   weeklyReminder: function(username ,userEmail, numberOfApps) {
@@ -34,7 +45,12 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: username + ' <' +  emailConfig.email_user + '>',
       subject: 'Weekly App Reminder',
-      html: '<b>Dear '+username+',</b><br /><br /><b style="font-size: 125%;">You have '+numberOfApps+' application\'s open!</b><br /><p><a href="apptrakk.herokuapp.com">Click here to view all open applications.</a></p>'
+      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><tr><td><b style="font-size: 125%;">Dear '+username+',</b><</td></tr>br /><br /><tr><td><b style="font-size: 125%;">You have '+numberOfApps+' application\'s open!</b></td></tr><tr><td><p><a href="apptrakk.herokuapp.com">Click here to view all open applications.</a></p></td></tr></table>',
+      attachments: [{
+        filename: 'appTrak.png',
+        path: path.join(__dirname + '/image/appTrak.png'),
+        cid: 'unique@appTrak.ee' //same cid value as in the 
+      }]
     }
   },
   deletedApp: function(user, appInfo) {
@@ -42,7 +58,12 @@ var templates = {
       from: '"AppTrak" <' + emailConfig.email_user + '>',
       to: user.username + ' <' +  emailConfig.email_user + '>',
       subject: 'Application Deleted',
-      html: '<h1 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h1><br /><b>Dear '+user.username+',</b><br /><br /><b style="font-size: 125%;">You deleted an application for '+appInfo.role+' at '+appInfo.companyName+'!</b>'
+      html: '<table><tr><td><img src="cid:unique@appTrak.ee" width="300" height="230" style="display: block;"/></td></tr><tr><td><br /><b style="font-size: 125%;">Dear '+user.username+',</b></td></tr><br /><br /><tr><td><b style="font-size: 125%;">You deleted an application for '+appInfo.role+' at '+appInfo.companyName+'!</b></td></tr><tr><td><h2 style="color: #025FE8">Application ID:<b style="color: #656765">'+appInfo._id+'</b></h2></td></tr></table>',
+      attachments: [{
+        filename: 'appTrak.png',
+        path: path.join(__dirname + '/image/appTrak.png'),
+        cid: 'unique@appTrak.ee' //same cid value as in the 
+      }]
     }
   }
 };
