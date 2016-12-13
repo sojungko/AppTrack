@@ -22,17 +22,12 @@ angular.module('at.completedApps', [])
   $scope.getJobData = () => {                                     // This works! //
     Application.getData()
       .then((applications) => {
+        //applications response is all applications queried with current logged in user. Users _id was sent down with request headers
+        //filter applications by the isOpen boolean and show only completed applications.
         var filteredApps = applications.filter((app) => {
           return app.isOpen === false;
         })
         $scope.results = filteredApps.reverse();
-      });
-  };
-
-  $scope.getSingleJob = () => {
-    Application.getJob($scope.role)
-      .then((job) => {
-        $scope.job = job;
       });
   };
 
@@ -55,6 +50,8 @@ angular.module('at.completedApps', [])
   };
 
   $scope.save = ($index, edit) => {
+    //after clicking save edits, set editor to false.
+    //pass down index and edit object containing all application edits.
     $scope.edit.editorEnabled = false;
     Application.putEditData($scope.results[$index]._id, edit)
       .then(() => {
@@ -64,11 +61,13 @@ angular.module('at.completedApps', [])
   };
 
   $scope.delete = ($index) => {
+    //requires index to be passed down to delete the correct application using _id tied to index of current application
     Application.deleteApp($scope.results[$index]._id)
       .then(() => {
         $scope.getJobData();
       })
   };
 
+  //call getJobData on controller load to load all apps based on user
   $scope.getJobData();
 });
