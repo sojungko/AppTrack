@@ -4,6 +4,7 @@ angular.module('at', [
   'at.completedApps',
   'at.auth',
   'at.services',
+  'at.account',
   'ngRoute',
   'ui.bootstrap',
   'ui.mask',
@@ -33,6 +34,10 @@ angular.module('at', [
   .when('/signup', {
     templateUrl: './app/login/signup.html',
     controller: 'AuthController',
+  })
+  .when('/myaccount', {
+    templateUrl: './app/account/account.html',
+    controller: 'AccountController'
   })
   .otherwise({ redirectTo: '/' });
 
