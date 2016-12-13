@@ -18,6 +18,10 @@ body {
   background-color: #232323;
 }
 
+#navbar-font {
+  color: white;
+}
+
 #btn-info {
   background-color: #7cc5dd;
   border-style: none;
