@@ -50,7 +50,9 @@ module.exports = {
 	},
 
 	sendUsername(req , res) {
-		const decoded = jwt.decode(req.headers['x-access-token'], 'apptrak');
-		res.send(decoded.username);
+		if(req.headers['x-access-token']) {
+			const decoded = jwt.decode(req.headers['x-access-token'], 'apptrak');
+			res.send(decoded.username);
+		}
 	}
 }
