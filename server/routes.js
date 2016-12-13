@@ -19,9 +19,9 @@ router.post('/api/remove/:id', applicationController.removeStage);
 router.post('/api/edit/:id', applicationController.editStage);
 router.post('/api/delete/:id', applicationController.deleteApp);
 
-router.post('/api/newAppEmail', email.newSend);
-router.post('/api/closedAppEmail', email.closedSend);
-router.post('/api/reminder', email.send);
-router.post('/api/deleteAppEmail', email.deletedSend);
+// see emailModel.js
+router.post('/api/newAppEmail', email.newSend); // called when new application is created and http request sent to /api/newAppEmail
+router.post('/api/closedAppEmail', email.closedSend); // called when application is called and http request sent to /api/closedAppEmail
+router.post('/api/deleteAppEmail', email.deletedSend); // called when application is deleted and http request sent to /api/deleteAppEmail
 
 module.exports = router;
