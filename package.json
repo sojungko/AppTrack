@@ -26,6 +26,7 @@
   "dependencies": {
     "angular": "^1.5.9",
     "angular-route": "^1.5.9",
+    "angular-ui-bootstrap": "^2.3.1",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "bcrypt-nodejs": "0.0.3",
