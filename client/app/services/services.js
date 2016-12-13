@@ -100,7 +100,6 @@ angular.module('at.services', [])
     method: 'GET',
     url: '/api/users'
   }).then(({ data }) => {
-    console.log('DATA : ', data);
     return data
   });
 

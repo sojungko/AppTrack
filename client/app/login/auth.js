@@ -41,9 +41,12 @@ angular.module('at.auth', [])
 
   $scope.getUserName = () => {
     Auth.getUserName()
-      .then((username) => {
-        $scope.username = username;
-      })
+    .then((username) => {
+      $scope.username = username;
+    })
+    .then(() => {
+      $location.path('/');
+    });
   };
 
   $scope.getUserName();
