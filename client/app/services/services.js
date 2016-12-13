@@ -71,13 +71,15 @@ angular.module('at.services', [])
     method: 'POST',
     url: `/api/delete/${id}`
   })
-    .then((resp) => $http({
+    .then((resp) => {
+      $http({
         method: 'POST',
         url: '/api/deleteAppEmail',
         data: resp
-      });
+      })
+    });
 
-  return { postData, getData, getJob, putStageData, removeStage, putEditData, deleteApp };
+  return { postData, getData, putStageData, removeStage, putEditData, deleteApp };
 })
 
 .factory('Auth', ($http, $location, $window) => {
