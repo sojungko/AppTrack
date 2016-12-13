@@ -30,7 +30,7 @@
       <!-- 1) Open Position Card, has 5 fields -->
       <!-- i) COMPANY, ii) ROLE, iii) JOB DESC, iv) APPLIED THRU, v) CONTACTS-->
       <li id="card">
-        <div id="card-title"><strong>Open Position</strong><br></div>
+        <div id="card-title"><strong>Application</strong><br></div>
         <div><span>{{result.dateApplied.slice(0,10)}}</span></div>
 
         <!-- i) COMPANY -->
@@ -124,14 +124,14 @@
         </div>
         <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
         <br>
-        <button type="submit" ng-click="pushToStages($index)" class="btn btn-info">Submit Stage</button>
+        <button type="submit" ng-click="pushToStages($index)" class="btn btn-info" id='btn-info'>Submit Stage</button>
       </div>
 
     </div><!-- Closing row -->
     <br>
     <div class='btn-group'>
-      <button class='btn btn-info' ng-click='removeStage($index)'>Remove Stage</button>
-      <button class='btn btn-primary'ng-click='delete($index)'>Delete This Application</button>
+      <button class='btn btn-info' id='btn-info' ng-click='removeStage($index)'>Remove Stage</button>
+      <button class='btn btn-primary'id='btn-primary' ng-click='delete($index)'>Delete This Application</button>
     </div>
     <hr>
   </ul> <!-- closing ng-repeat Application -->
