@@ -5,8 +5,13 @@ var emails = require('./emailModel.js');
 var weeklyReminderSender = function() {
   var reg = /\w+/;
   var user;
+  var flag = false;
   setInterval(function(){
-    if(Date.getDay() === 2 && Date.getHours() === 14) {
+    var date = new Date();
+    var day = date.getDay();
+    var hour = date.getHours();
+    if(day === 2 &&  hour === 15 && !flag) {
+      flag = true
       Users.find({username:reg}, function(err, data) {
         var users = data;
         for(var i = 0; i < users.length; i++) {
@@ -20,7 +25,9 @@ var weeklyReminderSender = function() {
           })(i)
         }
       });
+    } else if(!(day === 2 && hour === 11)){
+      flag = false;
     }
-  }, 1000 * 60 * 60);
+  }, 1000 * 60 * 20);
 };
 module.exports = weeklyReminderSender;
