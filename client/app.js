@@ -6,6 +6,7 @@ angular.module('at', [
   'at.services',
   'ngRoute',
   'ui.bootstrap',
+  'ui.mask',
 ])
 
 .config(($routeProvider, $locationProvider, $httpProvider) => {

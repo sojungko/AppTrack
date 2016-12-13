@@ -17,38 +17,38 @@
 
       <!-- COMPANY NAME: Required-->
       <div class="form-group" ng-class="{ 'has-error' : addNewApp.companyName.$invalid }">
-        <label>Company Name <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input type="text" name="companyName" class="form-control" ng-model="data.companyName" required>
+        <label>Company Name<img height='10px' width='10px' src='../Assets/required.png' /></label>
+        <input type="text" placeholder="App|Trak" name="companyName" class="form-control" ng-model="data.companyName" required>
       </div>
 
       <!-- POSITION: Required-->
       <div class="form-group" ng-class="{ 'has-error' : addNewApp.position.$invalid }">
         <label>Position <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input type="text" name="position" class="form-control" ng-model="data.role" required>
+        <input type="text" placeholder="Software Engineer" name="position" class="form-control" ng-model="data.role" required>
       </div>
 
       <!-- JOB DESCRIPTION: Optional-->
       <div class="form-group">
         <label>Job Description</label>
-        <input type="text" name="jobDescription" class="form-control" ng-model="data.jobDescription">
+        <input type="text" placeholder="Create awesome apps!" name="jobDescription" class="form-control" ng-model="data.jobDescription">
       </div>
 
       <!-- APPLIED THROUGH: Optional-->
       <div class="form-group">
         <label>Applied Through</label>
-        <input type="text" name="appliedThrough" class="form-control" ng-model="data.appliedThrough">
+        <input type="text" placeholder="LinkedIn" name="appliedThrough" class="form-control" ng-model="data.appliedThrough">
       </div>
 
       <!-- CONTACT NAME: Required-->
       <div class="form-group" ng-class="{ 'has-error' : addNewApp.contactName.$invalid }">
         <label>Contact Name <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input type="text" name="contactName" class="form-control" ng-model="data.contactName" required>
+        <input type="text" placeHolder="So Jung" name="contactName" class="form-control" ng-model="data.contactName" required>
       </div>
 
       <!-- CONTACT PHONE NUMBER: Required, Only accepts number-->
       <div class="form-group" ng-class="{ 'has-error' : addNewApp.contactPhone.$invalid }">
         <label>Contact Phone Number <img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input type="number" name="contactPhone" class="form-control" ng-model="data.contactPhone" required>
+        <input type="text" name="contactPhone" class="form-control" ng-model="data.contactPhone" ui-mask="(999) 999-9999"  ui-mask-placeholder ui-mask-placeholder-char="_" required/>
       </div>
 
       <!-- CONTACT EMAIL: Required, has to be validated-->
@@ -56,7 +56,7 @@
       <div class="form-group" ng-class="{ 'has-error' : addNewApp.contactEmail.$invalid }">
 
         <label>Contact Email Address<img height='10px' width='10px' src='../Assets/required.png' /></label>
-        <input type="email" name="contactEmail" class="form-control" ng-model="data.contactEmail" required>
+        <input type="email" placeholder="jobs@apptrak.com" name="contactEmail" class="form-control" ng-model="data.contactEmail" required>
 
         <!-- Invalid input error message -->
         <p ng-show="addNewApp.contactEmail.$invalid && !addNewApp.contactEmail.$pristine" class="help-block">Not a valid email.</p>
